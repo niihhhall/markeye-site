@@ -80,6 +80,10 @@ p {
     display: inline-block;
 }
 
+/* Spacing Utilities */
+.mb-6 { margin-bottom: 1.5rem !important; }
+.mb-12 { margin-bottom: 3rem !important; }
+
 /* Layout Helpers */
 .container {
     max-width: var(--container-max-width);
