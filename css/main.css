@@ -83,6 +83,15 @@ p {
 /* Spacing Utilities */
 .mb-6 { margin-bottom: 1.5rem !important; }
 .mb-12 { margin-bottom: 3rem !important; }
+.mx-auto { margin-left: auto !important; margin-right: auto !important; }
+
+/* Text Utilities */
+.text-center { text-align: center !important; }
+.text-left { text-align: left !important; }
+.text-right { text-align: right !important; }
+
+/* Position Utilities */
+.relative { position: relative !important; }
 
 /* Layout Helpers */
 .container {
