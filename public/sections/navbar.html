@@ -10,6 +10,11 @@
             <li><a href="#services">Services</a></li>
             <li><a href="#how-it-works">Process</a></li>
             <li><a href="#faqs">FAQ</a></li>
+            <li class="mobile-only-cta">
+                <a href="#final-cta" class="about-btn" style="width: 100%; justify-content: center; background: var(--accent); border-color: rgba(255,255,255,0.2);">
+                    APPLY FOR A SPOT
+                </a>
+            </li>
         </ul>
         
         <div class="nav-actions">
@@ -147,6 +152,18 @@
 
 .nav-links a:hover {
     color: white;
+}
+
+.mobile-only-cta {
+    display: none;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+@media (max-width: 992px) {
+    .mobile-only-cta {
+        display: block;
+    }
 }
 
 .btn-sm {
