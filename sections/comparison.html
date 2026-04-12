@@ -1,0 +1,309 @@
+<section class="comparison-section section-padding" id="comparison">
+    <div class="container">
+        <div class="text-center reveal mb-16">
+            <h2 class="section-title">HOW THIS COMPARES</h2>
+            <p class="section-subtitle">STOP BUYING HOURS. START BUYING INFRASTRUCTURE.</p>
+        </div>
+
+        <div class="comparison-wrapper reveal">
+            <div class="comparison-scroll-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Full-Time SDR</th>
+                            <th>Generic Agency</th>
+                            <th>rawgrowth-style tools</th>
+                            <th class="highlight-col markeye-header">
+                                <div class="status-indicator">
+                                    <span class="status-dot"></span>
+                                    LIVE PROCESSING
+                                </div>
+                                Markeye AI Employees
+                                <div class="scanner-beam"></div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="row-label">Monthly cost</td>
+                            <td>$7,667</td>
+                            <td>$3–5K</td>
+                            <td>$5–10K</td>
+                            <td class="highlight-col">
+                                <span class="counter-value" data-target="4500" data-prefix="$">$4,500</span>
+                                <div class="shine-sweep"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="row-label">Meetings/month</td>
+                            <td>8–12</td>
+                            <td>5–10</td>
+                            <td>Varies</td>
+                            <td class="highlight-col">
+                                <span class="counter-value" data-target="35" data-suffix=" (avg)">25–35</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="row-label">Time to live</td>
+                            <td>90 days</td>
+                            <td>4–6 wks</td>
+                            <td>Weeks</td>
+                            <td class="highlight-col">
+                                <span class="counter-value" data-target="12" data-suffix=" days">12 days</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="row-label">Personalization</td>
+                            <td>Manual</td>
+                            <td>Template</td>
+                            <td>Template</td>
+                            <td class="highlight-col highlight-text">AI per-prospect</td>
+                        </tr>
+                        <tr>
+                            <td class="row-label">Works weekends</td>
+                            <td>No</td>
+                            <td>No</td>
+                            <td>Partial</td>
+                            <td class="highlight-col highlight-text">Yes</td>
+                        </tr>
+
+                        <tr>
+                            <td class="row-label">Cost per meeting</td>
+                            <td>$639–$958</td>
+                            <td>$500–$1K</td>
+                            <td>$300–$700</td>
+                            <td class="highlight-col">
+                                <span class="counter-value" data-prefix="$" data-target="180">$128–$180</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.comparison-section {
+    background: var(--bg-main);
+    padding-top: 4rem !important;
+}
+
+.comparison-wrapper {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+}
+
+.comparison-scroll-container {
+    overflow-x: auto;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 900px;
+}
+
+.comparison-table th, .comparison-table td {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.95rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.comparison-table th {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 800;
+}
+
+.comparison-table td {
+    color: var(--text-secondary);
+}
+
+.row-label {
+    color: white !important;
+    font-weight: 700;
+    width: 250px;
+}
+
+.highlight-col {
+    background: rgba(255, 0, 0, 0.03);
+    color: white !important;
+    font-weight: 700 !important;
+    text-align: center;
+    border-left: 1px solid rgba(255, 0, 0, 0.1);
+    border-right: 1px solid rgba(255, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+/* AI Scanner Beam */
+.scanner-beam {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.5;
+    box-shadow: 0 0 15px var(--accent);
+    animation: scan 4s linear infinite;
+}
+
+@keyframes scan {
+    0% { top: 0; opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { top: 1000px; opacity: 0; } /* Animating over large distance is easier than height:100% in table cells */
+}
+
+/* Pulse Animation */
+.highlight-col::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255, 0, 0, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.5; }
+}
+
+/* Shine Sweep */
+.shine-sweep {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: all 0.6s;
+    animation: shine 6s infinite;
+    z-index: 2;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    20% { left: 100%; }
+    100% { left: 100%; }
+}
+
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.6rem;
+    color: var(--accent);
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 0, 0, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 99px;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent);
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.highlight-text {
+    background: linear-gradient(90deg, #fff, var(--accent), #fff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGradient 6s linear infinite;
+}
+
+@keyframes textGradient {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+@media (max-width: 1024px) {
+    .comparison-table th, .comparison-table td {
+        padding: 1rem 1.5rem;
+    }
+}
+</style>
+
+<script>
+    function animateCounters() {
+        const counters = document.querySelectorAll('.counter-value');
+        const speed = 200;
+
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const prefix = counter.getAttribute('data-prefix') || '';
+                const suffix = counter.getAttribute('data-suffix') || '';
+                const count = +counter.innerText.replace(/[^\d]/g, '');
+
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = prefix + Math.ceil(count + inc).toLocaleString() + suffix;
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = prefix + target.toLocaleString() + suffix;
+                }
+            };
+            
+            // Only trigger if not already animated
+            if (!counter.classList.contains('animated')) {
+                counter.classList.add('animated');
+                updateCount();
+            }
+        });
+    }
+
+    // Initialize observer for counters
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const comparisonSection = document.querySelector('.comparison-table');
+    if (comparisonSection) {
+        counterObserver.observe(comparisonSection);
+    }
+</script>
+

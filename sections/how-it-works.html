@@ -1,0 +1,473 @@
+<section class="how-it-works-section section-padding" id="how-it-works">
+    <!-- Premium Background Layer -->
+    <div class="how-it-works-bg">
+        <canvas id="how-it-works-bg-canvas"></canvas>
+        <div class="noise-overlay"></div>
+        <div class="how-it-works-glow"></div>
+    </div>
+    
+    <div class="container relative z-10">
+        <div class="text-center reveal mb-20">
+            <h2 class="section-title">YOUR AI EMPLOYEE TEAM.<br>INSTALLED IN 4 PHASES. LIVE IN 12 DAYS.</h2>
+            <p class="section-subtitle">SPEED IS A WEAPON. WE USE IT.</p>
+        </div>
+
+        <div class="timeline-wrapper">
+            <!-- Connection Line SVG -->
+            <svg class="timeline-svg" preserveAspectRatio="none">
+                <path class="timeline-path" d=""></path>
+                <path class="timeline-path-glow" d=""></path>
+            </svg>
+
+            <div class="phases-container">
+                <!-- Phase 1: AUDIT -->
+                <div class="phase-card reveal" data-delay="0.1">
+                    <div class="card-bg-wrapper">
+                        <canvas class="phase-particle-canvas"></canvas>
+                        <div class="card-glass-glow"></div>
+                    </div>
+                    <div class="phase-header">
+                        <div class="number-box">01</div>
+                        <div class="header-main">
+                            <h3 class="phase-title">AUDIT</h3>
+                            <span class="phase-day text-accent">DAY 1</span>
+                        </div>
+                    </div>
+                    <div class="phase-body">
+                        <p class="body-intro">90-minute kickoff. We go deep.</p>
+                        <ul class="phase-list">
+                            <li>- Your ICP defined</li>
+                            <li>- Stack mapping</li>
+                            <li>- Pipeline confirmed</li>
+                            <li>- "Qualified" locked</li>
+                        </ul>
+                        <div class="phase-status">
+                            <span class="status-dot"></span>
+                            Alignment Locked
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2: BUILD -->
+                <div class="phase-card reveal" data-delay="0.2">
+                    <div class="card-bg-wrapper">
+                        <canvas class="phase-particle-canvas"></canvas>
+                        <div class="card-glass-glow"></div>
+                    </div>
+                    <div class="phase-header">
+                        <div class="number-box">02</div>
+                        <div class="header-main">
+                            <h3 class="phase-title">BUILD</h3>
+                            <span class="phase-day text-accent">DAYS 2–10</span>
+                        </div>
+                    </div>
+                    <div class="phase-body">
+                        <p class="body-intro">We build while you run.</p>
+                        <ul class="phase-list">
+                            <li>- Day 2–3: R&D</li>
+                            <li>- Day 4–5: Engine</li>
+                            <li>- Day 6: Logic</li>
+                            <li>- Day 7: CRM depth</li>
+                        </ul>
+                        <div class="phase-status">
+                            <span class="status-dot"></span>
+                            Infrastructure Scaling
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3: LAUNCH -->
+                <div class="phase-card reveal" data-delay="0.3">
+                    <div class="card-bg-wrapper">
+                        <canvas class="phase-particle-canvas"></canvas>
+                        <div class="card-glass-glow"></div>
+                    </div>
+                    <div class="phase-header">
+                        <div class="number-box">03</div>
+                        <div class="header-main">
+                            <h3 class="phase-title">LAUNCH</h3>
+                            <span class="phase-day text-accent">DAYS 11–12</span>
+                        </div>
+                    </div>
+                    <div class="phase-body">
+                        <p class="body-intro">System goes live.</p>
+                        <ul class="phase-list">
+                            <li>- Day 11: Final check</li>
+                            <li>- Day 12: Go live</li>
+                            <li>- Bridge stabilized</li>
+                            <li>- Dashboard active</li>
+                        </ul>
+                        <div class="phase-status">
+                            <span class="status-dot green"></span>
+                            Revenue System Live
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 4: COMPOUND -->
+                <div class="phase-card reveal" data-delay="0.4">
+                    <div class="card-bg-wrapper">
+                        <canvas class="phase-particle-canvas"></canvas>
+                        <div class="card-glass-glow"></div>
+                    </div>
+                    <div class="phase-header">
+                        <div class="number-box">04</div>
+                        <div class="header-main">
+                            <h3 class="phase-title">COMPOUND</h3>
+                            <span class="phase-day text-accent">DAY 30+</span>
+                        </div>
+                    </div>
+                    <div class="phase-body">
+                        <p class="body-intro">Optimization.</p>
+                        <ul class="phase-list">
+                            <li>- Day 30: 20+ meetings</li>
+                            <li>- Weekly tuning</li>
+                            <li>- Sentiment analysis</li>
+                            <li>- System compounds</li>
+                        </ul>
+                        <div class="phase-status">
+                            <span class="status-dot pulsate"></span>
+                            Scaling Performance
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.how-it-works-section {
+    position: relative;
+    background: var(--bg-main);
+    overflow: hidden;
+    padding: 6rem 0 !important;
+}
+
+.how-it-works-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    mask-image: linear-gradient(to bottom, transparent, black 15rem, black calc(100% - 15rem), transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 15rem, black calc(100% - 15rem), transparent);
+}
+
+#how-it-works-bg-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+}
+
+.how-it-works-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 0, 0, 0.03) 0%, transparent 70%);
+    filter: blur(120px);
+}
+
+.noise-overlay {
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.timeline-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline-svg {
+    position: absolute;
+    top: calc(3.5rem + 30px); /* Centers line behind number-box */
+    left: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 2;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.timeline-path {
+    stroke: rgba(255, 255, 255, 0.08);
+    stroke-width: 2;
+    fill: none;
+}
+
+.timeline-path-glow {
+    stroke: var(--accent);
+    stroke-width: 2;
+    fill: none;
+    stroke-dasharray: 12, 1000;
+    stroke-linecap: round;
+    animation: flow 4s linear infinite;
+}
+
+@keyframes flow {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: -1012; }
+}
+
+.phases-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 3;
+}
+
+.phase-card {
+    flex: 1;
+    background: rgba(13, 13, 13, 0.4);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 28px;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 480px;
+    position: relative;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    isolation: isolate;
+}
+
+.card-bg-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: 28px;
+    z-index: -1;
+}
+
+.phase-particle-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+}
+
+.phase-card:hover {
+    transform: translateY(-12px);
+    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(20, 20, 20, 0.6);
+}
+
+.card-glass-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(255, 0, 0, 0.08), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.phase-card:hover .card-glass-glow {
+    opacity: 1;
+}
+
+.phase-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.number-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid rgba(255, 0, 0, 0.4);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--accent);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
+    z-index: 5;
+}
+
+.phase-title {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.phase-day {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+}
+
+.body-intro {
+    font-size: 1.1rem;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.phase-list {
+    list-style: none;
+    margin-bottom: 2rem;
+    text-align: left;
+    width: fit-content;
+    margin-inline: auto;
+}
+
+.phase-list li {
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.phase-status {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.status-dot { width: 6px; height: 6px; background: var(--text-muted); border-radius: 50%; }
+.status-dot.green { background: #00ff88; box-shadow: 0 0 10px rgba(0, 255, 136, 0.4); }
+.status-dot.pulsate { background: var(--accent); animation: pulsate 2s infinite; }
+
+@media (max-width: 1200px) {
+    .phases-container { flex-direction: column; gap: 2rem; }
+    .timeline-svg { display: none; }
+    .phase-card { min-height: auto; width: 100%; }
+}
+
+@keyframes pulsate {
+    0% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4); }
+    70% { transform: scale(1.2); opacity: 0.7; box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
+    100% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+}
+
+.phase-card.reveal { opacity: 0; transform: translateY(30px); }
+.phase-card.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+
+<script>
+(function() {
+    // 1. Particle Logic for individual cards
+    const cards = document.querySelectorAll('.phase-card');
+    cards.forEach(card => {
+        const canvas = card.querySelector('.phase-particle-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const settings = { count: 18, distance: 100, speed: 0.3 };
+        
+        class P {
+            constructor() { 
+                this.x = Math.random()*canvas.width; 
+                this.y = Math.random()*canvas.height; 
+                this.vx = (Math.random()-0.5)*settings.speed;
+                this.vy = (Math.random()-0.5)*settings.speed;
+                this.r = Math.random()*1+0.5;
+            }
+            update() {
+                this.x += this.vx; this.y += this.vy;
+                if(this.x<0||this.x>canvas.width) this.vx*=-1;
+                if(this.y<0||this.y>canvas.height) this.vy*=-1;
+            }
+            draw() {
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
+                ctx.fillStyle = 'rgba(255,255,255,0.2)'; ctx.fill();
+            }
+        }
+        function init() {
+            const r = canvas.parentElement.getBoundingClientRect();
+            canvas.width = r.width; canvas.height = r.height;
+            particles = Array.from({length:settings.count}, () => new P());
+        }
+        function anim() {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(anim);
+        }
+        init(); anim();
+    });
+
+    // 2. Timeline Line Positioning
+    function updateTimeline() {
+        const svg = document.querySelector('.timeline-svg');
+        const path = document.querySelector('.timeline-path');
+        const pathGlow = document.querySelector('.timeline-path-glow');
+        const boxes = document.querySelectorAll('.number-box');
+        
+        if (!svg || !boxes.length) return;
+        
+        const svgRect = svg.getBoundingClientRect();
+        let d = "";
+        
+        boxes.forEach((box, i) => {
+            const rect = box.getBoundingClientRect();
+            const x = rect.left + rect.width/2 - svgRect.left;
+            const y = rect.top + rect.height/2 - svgRect.top;
+            if (i === 0) d += `M ${x} ${y}`;
+            else d += ` L ${x} ${y}`;
+        });
+        
+        path.setAttribute('d', d);
+        pathGlow.setAttribute('d', d);
+    }
+
+    // 3. Section Background Mesh
+    const bgCanvas = document.getElementById('how-it-works-bg-canvas');
+    if (bgCanvas) {
+        const ctx = bgCanvas.getContext('2d');
+        let pts = [];
+        function initBg() {
+            bgCanvas.width = window.innerWidth;
+            bgCanvas.height = bgCanvas.parentElement.offsetHeight;
+            pts = Array.from({length: 60}, () => ({
+                x: Math.random()*bgCanvas.width, y: Math.random()*bgCanvas.height,
+                vx: (Math.random()-0.5)*0.5, vy: (Math.random()-0.5)*0.5
+            }));
+        }
+        function animBg() {
+            ctx.clearRect(0,0,bgCanvas.width,bgCanvas.height);
+            pts.forEach(p => {
+                p.x += p.vx; p.y += p.vy;
+                if(p.x<0||p.x > bgCanvas.width) p.vx*=-1;
+                if(p.y<0||p.y > bgCanvas.height) p.vy*=-1;
+                ctx.beginPath(); ctx.arc(p.x, p.y, 1, 0, Math.PI*2);
+                ctx.fillStyle = 'rgba(255,255,255,0.1)'; ctx.fill();
+            });
+            requestAnimationFrame(animBg);
+        }
+        initBg(); animBg();
+    }
+
+    window.addEventListener('resize', () => { updateTimeline(); });
+    setTimeout(updateTimeline, 500); // Wait for reveal animations to settle
+})();
+</script>
