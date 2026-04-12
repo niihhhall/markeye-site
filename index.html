@@ -42,7 +42,10 @@
     <div id="footer"></div>
 
     <!-- Modular Loader Script -->
-    <script>
+    <script type="module">
+        import { inject } from '@vercel/speed-insights';
+        inject();
+
         async function loadSection(id, file) {
             try {
                 const response = await fetch(`sections/${file}`);
