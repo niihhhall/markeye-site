@@ -1,0 +1,194 @@
+<section class="who-is-it-for-section section-padding" id="who-is-it-for">
+    <div class="container">
+        <div class="text-center reveal mb-16">
+            <h2 class="section-title">SELF-QUALIFICATION</h2>
+            <p class="section-subtitle">IS THIS FOR YOU?</p>
+        </div>
+
+        <div class="qualification-grid">
+            <!-- FOR YOU -->
+            <div class="qual-card for-you reveal" data-delay="0.1">
+                <div class="qual-card-content">
+                    <h3 class="qual-title">THIS IS FOR YOU IF:</h3>
+                    <ul class="qual-list">
+                        <li><span class="icon">✓</span> You're a B2B SaaS founder at $500K–$5M ARR doing outbound manually or not at all.</li>
+                        <li><span class="icon">✓</span> You're spending more than 5 hours a week on prospecting, follow-ups, or CRM management.</li>
+                        <li><span class="icon">✓</span> You've tried an agency and got lists, not meetings.</li>
+                        <li><span class="icon">✓</span> You're considering hiring an SDR and want to see if an AI employee can do it better first.</li>
+                        <li><span class="icon">✓</span> You run an agency and your clients are asking about AI — and you want to deliver it without building the infrastructure yourself.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- NOT FOR YOU -->
+            <div class="qual-card not-for-you reveal" data-delay="0.3">
+                <div class="qual-card-content">
+                    <h3 class="qual-title">THIS IS NOT FOR YOU IF:</h3>
+                    <ul class="qual-list">
+                        <li><span class="icon">✗</span> You're pre-revenue with no defined ICP.</li>
+                        <li><span class="icon">✗</span> You're looking for a chatbot or FAQ bot.</li>
+                        <li><span class="icon">✗</span> You want someone to manage your tools — not build infrastructure you own.</li>
+                        <li><span class="icon">✗</span> You need results in 3 days. (We need 12. If that's too long, we're not the fit.)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.who-is-it-for-section {
+    background: var(--bg-main);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Ambient Glows */
+.who-is-it-for-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 30%, rgba(0, 255, 0, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.qualification-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.qual-card {
+    position: relative;
+    padding: 2px; /* For the border animation space */
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.02);
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100%;
+}
+
+.qual-card-content {
+    background: #0a0a0a;
+    padding: 3rem;
+    border-radius: 22px;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Moving Border Animation for 'For You' */
+.qual-card.for-you::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        transparent 150deg,
+        #00ff00 180deg,
+        transparent 210deg,
+        transparent 360deg
+    );
+    animation: rotate-border 4s linear infinite;
+    z-index: 1;
+}
+
+/* Static but Glowing Border for 'Not For You' */
+.qual-card.not-for-you {
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    padding: 0; /* Reset padding since we don't have moving border here */
+}
+
+.qual-card.not-for-you .qual-card-content {
+    background: linear-gradient(135deg, rgba(20, 10, 10, 0.9) 0%, rgba(10, 10, 10, 1) 100%);
+}
+
+@keyframes rotate-border {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Hover Effects */
+.qual-card:hover {
+    transform: translateY(-12px) scale(1.01);
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5);
+}
+
+.for-you:hover {
+    filter: drop-shadow(0 0 20px rgba(0, 255, 0, 0.15));
+}
+
+.not-for-you:hover {
+    filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.15));
+}
+
+.qual-title {
+    font-size: 1.25rem;
+    color: white;
+    font-weight: 800;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.05em;
+    position: relative;
+    display: inline-block;
+}
+
+.qual-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    border-radius: 2px;
+}
+
+.for-you .qual-title::after { background: #00ff00; }
+.not-for-you .qual-title::after { background: var(--accent); }
+
+.qual-list { list-style: none; }
+
+.qual-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.qual-card:hover .qual-list li {
+    color: white;
+}
+
+.qual-list li .icon {
+    font-size: 1.25rem;
+    font-weight: 900;
+    flex-shrink: 0;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.qual-card:hover .icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.for-you .icon { color: #00ff00; text-shadow: 0 0 10px rgba(0, 255, 0, 0.5); }
+.not-for-you .icon { color: var(--accent); text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); }
+
+@media (max-width: 992px) {
+    .qualification-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+</style>

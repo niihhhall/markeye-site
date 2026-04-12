@@ -1,0 +1,280 @@
+<section class="final-cta-section section-padding" id="final-cta">
+    <div class="container overflow-visible">
+        <div class="final-cta-box reveal">
+            <!-- Background Glow -->
+            <div class="cta-glow"></div>
+            
+            <div class="text-center relative z-10">
+
+                <div class="cta-actions mb-12 reveal" data-delay="0.2">
+                    <!-- Cal inline embed container -->
+                    <div id="my-cal-inline-1on1"></div>
+                </div>
+
+                <div class="premium-status-hub reveal" data-delay="0.5">
+                    <div class="trust-grid">
+                        <div class="trust-chip">
+                            <div class="chip-glow"></div>
+                            <span class="check-icon">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span>12-day build</span>
+                        </div>
+                        <div class="trust-chip">
+                            <div class="chip-glow"></div>
+                            <span class="check-icon">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span>Systematic Outbound Architecture</span>
+                        </div>
+                        <div class="trust-chip">
+                            <div class="chip-glow"></div>
+                            <span class="check-icon">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span>Direct Slack access to Nihal</span>
+                        </div>
+                        <div class="trust-chip">
+                            <div class="chip-glow"></div>
+                            <span class="check-icon">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span>Sentiment-Tuned Intelligence</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.final-cta-section {
+    background: var(--bg-main);
+    position: relative;
+    padding-bottom: 10rem;
+}
+
+.final-cta-box {
+    padding: 8rem 4rem;
+    background: rgba(10, 10, 10, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 48px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    isolation: isolate;
+}
+
+.cta-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(255, 0, 0, 0.08), transparent 70%);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.premium-status-hub {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.status-dashboard {
+    display: inline-flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 1.25rem 3rem;
+    background: rgba(20, 20, 20, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+                inset 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.pulse-wrapper {
+    position: relative;
+    width: 10px;
+    height: 10px;
+}
+
+.pulse-dot {
+    width: 6px;
+    height: 6px;
+    background: #00ff88;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 10px #00ff88;
+}
+
+.pulse-dot::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 1px solid #00ff88;
+    border-radius: 50%;
+    animation: status-pulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+@keyframes ring-pulse {
+    0% { transform: scale(0.8); opacity: 0.5; }
+    100% { transform: scale(2.5); opacity: 0; }
+}
+
+.status-info, .availability-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+}
+
+.status-label, .availability-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+}
+
+.status-value {
+    color: #00ff88;
+}
+
+.status-value, .availability-value {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: white;
+}
+
+.availability-value {
+    color: var(--accent);
+}
+
+.status-divider {
+    width: 1px;
+    height: 30px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.trust-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 900px;
+}
+
+.trust-chip {
+    padding: 0.75rem 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.chip-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255, 0, 0, 0.15), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.trust-chip:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 0, 0, 0.2);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.trust-chip:hover .chip-glow {
+    opacity: 1;
+}
+
+.check-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: rgba(255, 0, 0, 0.1);
+    color: var(--accent);
+    border-radius: 4px;
+}
+
+@media (max-width: 992px) {
+    .status-dashboard {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 2rem;
+        border-radius: 24px;
+        width: 100%;
+    }
+    .status-divider {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    }
+    .status-indicator, .availability-info {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 1024px) {
+    .final-cta-box {
+        padding: 4rem 1.5rem;
+    }
+    #my-cal-inline-1on1 {
+        height: 750px;
+        min-height: 750px;
+    }
+    .trust-grid {
+        display: flex;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100%;
+        max-width: 450px;
+        margin: 3rem auto 0 auto;
+        gap: 1.25rem;
+    }
+    .trust-chip {
+        width: 100% !important;
+        justify-content: flex-start;
+    }
+    .premium-status-hub {
+        margin-top: 6rem; /* Substantial gap for mobile safety */
+    }
+}
+</style>
+
+<script>
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+Cal("init", "1on1", {origin:"https://app.cal.com"});
+
+  Cal.ns["1on1"]("inline", {
+    elementOrSelector:"#my-cal-inline-1on1",
+    config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"dark"},
+    calLink: "niihhhall/1on1",
+  });
+
+  Cal.ns["1on1"]("ui", {"theme":"dark","cssVarsPerTheme":{"light":{"cal-brand":"#292929"},"dark":{"cal-brand":"#ff0000"}},"hideEventTypeDetails":false,"layout":"month_view"});
+</script>

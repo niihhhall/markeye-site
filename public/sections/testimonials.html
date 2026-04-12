@@ -1,0 +1,197 @@
+<section class="results-section section-padding" id="results">
+    <div class="container">
+        <div class="text-center reveal mb-16">
+            <h2 class="section-title">REAL NUMBERS. REAL INSTALLS.</h2>
+            <p class="section-subtitle">EVERY SYSTEM STILL RUNNING.</p>
+        </div>
+        
+        <div class="results-grid">
+            <!-- Case Study 1 -->
+            <div class="result-card reveal" data-delay="0.1">
+                <blockquote class="result-quote">
+                    "I approved the ICP on Day 1. By Day 15 the first meeting was in my calendar. I didn't touch outbound once."
+                    <footer class="text-muted">— Founder</footer>
+                </blockquote>
+                <div class="result-meta">
+                    <p class="industry">B2B SaaS · Product Analytics · $1.8M ARR</p>
+                    <div class="divider"></div>
+                    <p class="solution">AI SDR System</p>
+                    <p class="outcome text-accent">+280% meetings/month</p>
+                    <p class="stat">8 - 31 meetings in Month 1</p>
+                </div>
+            </div>
+            
+            <!-- Case Study 2 -->
+            <div class="result-card reveal" data-delay="0.2">
+                <blockquote class="result-quote">
+                    "We were about to post the SDR job. We wanted to see this first. We didn't post the job."
+                    <footer class="text-muted">— CEO</footer>
+                </blockquote>
+                <div class="result-meta">
+                    <p class="industry">B2B SaaS · Sales Intelligence · $3.2M ARR</p>
+                    <div class="divider"></div>
+                    <p class="solution">AI SDR System</p>
+                    <p class="outcome text-accent">SDR hire cancelled. $80K/yr saved.</p>
+                    <p class="stat">11 - 34 meetings in Month 1</p>
+                </div>
+            </div>
+            
+            <!-- Case Study 3 (Partner) -->
+            <div class="result-card reveal" data-delay="0.3">
+                <blockquote class="result-quote">
+                    "My clients think it's our proprietary system. It kind of is — we own the deployments. Markeye stays invisible. The margin doesn't."
+                    <footer class="text-muted">— Agency Owner</footer>
+                </blockquote>
+                <div class="result-meta">
+                    <p class="industry">Digital Agency · $3.4M Revenue · 31 clients</p>
+                    <div class="divider"></div>
+                    <p class="solution">White-Label AI Partner Program</p>
+                    <p class="outcome text-accent">$19,200/month gross profit</p>
+                    <p class="stat">6 hours of delivery per month</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="stat-bar-container mt-16 reveal">
+            <div class="stat-bar">
+                <div class="stat-col">
+                    <span class="s-val">31</span>
+                    <span class="s-lab">Meetings Month 1</span>
+                </div>
+                <div class="stat-col">
+                    <span class="s-val">12</span>
+                    <span class="s-lab">Days to live</span>
+                </div>
+                <div class="stat-col">
+                    <span class="s-val">100%</span>
+                    <span class="s-lab">Code yours</span>
+                </div>
+                <div class="stat-col">
+                    <span class="s-val">Day 14</span>
+                    <span class="s-lab">You own everything</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.results-section {
+    background: var(--bg-main);
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+}
+
+.result-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    padding: 3rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.result-quote {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: white;
+    font-style: italic;
+    flex-grow: 1;
+}
+
+.result-quote footer {
+    font-size: 0.9rem;
+    font-style: normal;
+    margin-top: 1rem;
+    color: var(--text-muted);
+}
+
+.result-meta {
+    margin-top: auto;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.industry {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 1rem 0;
+}
+
+.solution {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.25rem;
+}
+
+.outcome {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.stat {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.text-accent { color: var(--accent); }
+
+.stat-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--bg-surface);
+    border: 1px solid var(--accent);
+    padding: 3rem;
+    border-radius: 24px;
+    text-align: center;
+}
+
+.stat-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.s-val {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: white;
+}
+
+.s-lab {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.mb-16 { margin-bottom: 4rem; }
+.mt-16 { margin-top: 4rem; }
+
+@media (max-width: 992px) {
+    .stat-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .stat-bar {
+        grid-template-columns: 1fr;
+    }
+}
+</style>

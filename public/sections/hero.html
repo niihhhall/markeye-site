@@ -1,0 +1,465 @@
+<section class="hero-section section-padding" id="hero">
+    <!-- Premium Background Layer -->
+    <div class="hero-bg">
+        <canvas id="hero-canvas"></canvas>
+        <div class="noise-overlay"></div>
+        <div class="hero-glow"></div>
+        <div class="particles"></div>
+        <div class="grid-bg"></div>
+        <div class="gradient-overlay"></div>
+    </div>
+
+    <div class="container hero-container text-center">
+        <div class="badge-wrapper reveal" data-delay="0.1">
+            <span class="badge glass">
+                <span class="pulse-dot"></span>
+                2 spots remaining.
+            </span>
+        </div>
+        
+        <h1 class="display-title display-title-long reveal" data-delay="0.2">
+            AI Employees for B2B SaaS Founders to own their infrastructure.
+        </h1>
+        
+        <p class="hero-description reveal" data-delay="0.3">
+            Autonomous growth systems for elite founders. Deploy a team of AI employees that research, reach out, and book meetings on autopilot while you own the asset forever.
+        </p>
+        
+        <div class="hero-actions reveal" data-delay="0.4">
+            <div class="cta-group">
+                <a href="#final-cta" class="btn-primary btn-lg btn-shimmer">
+                    <canvas id="hero-btn-canvas"></canvas>
+                    <span class="relative z-10">Apply for a Spot</span>
+                </a>
+            </div>
+            
+
+        </div>
+    </div>
+</section>
+
+<style>
+
+.hero-section {
+    min-height: 125vh; /* Compares to 100vh at 0.8 zoom (100/0.8 = 125) */
+    height: 125vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 0, 0, 0.05) 0%, transparent 70%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.grid-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: center;
+    mask-image: radial-gradient(circle at center, black, transparent 80%);
+    opacity: 0.5;
+}
+
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) 100%);
+}
+
+.hero-container {
+    position: relative;
+    z-index: 4;
+    text-align: center;
+}
+
+.noise-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+}
+
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+    z-index: 5;
+}
+
+#hero-btn-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 1;
+}
+
+.btn-primary .relative {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle at center, rgba(255, 0, 0, 0.08) 0%, transparent 70%);
+    filter: blur(100px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.display-title-long {
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    line-height: 1.1;
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    background: linear-gradient(to bottom, #ffffff 0%, #a1a1a1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.badge-wrapper {
+    margin-bottom: 2rem;
+}
+
+.badge.glass {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+.pulse-dot {
+    width: 6px;
+    height: 6px;
+    background: #00ff88;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 10px #00ff88;
+}
+
+.pulse-dot::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 1px solid #00ff88;
+    border-radius: 50%;
+    animation: badge-pulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+@keyframes badge-pulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(3); opacity: 0; }
+}
+
+.hero-description {
+    max-width: 850px;
+    margin: 0 auto 3rem auto;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.btn-lg {
+    padding: 1.25rem 3.5rem;
+    font-size: 1.25rem;
+    border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+    .cta-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+}
+</style>
+
+<script>
+(function() {
+    const canvas = document.getElementById('hero-canvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animationId;
+    let mouse = { x: null, y: null };
+
+    const settings = {
+        count: window.innerWidth < 768 ? 40 : 80,
+        distance: 150,
+        particleSpeed: 0.5,
+        particleRadius: 1.5,
+        connectionWidth: 0.8,
+        mouseRadius: 200
+    };
+
+    class Particle {
+        constructor() {
+            this.init();
+        }
+
+        init() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.vx = (Math.random() - 0.5) * settings.particleSpeed;
+            this.vy = (Math.random() - 0.5) * settings.particleSpeed;
+            this.radius = Math.random() * settings.particleRadius + 0.5;
+            this.alpha = Math.random() * 0.5 + 0.2;
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            // Boundary collision
+            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+            // Mouse interaction
+            if (mouse.x !== null) {
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < settings.mouseRadius) {
+                    const force = (settings.mouseRadius - dist) / settings.mouseRadius;
+                    this.vx -= dx * force * 0.01;
+                    this.vy -= dy * force * 0.01;
+                }
+            }
+
+            // Limit speed
+            const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
+            if (speed > settings.particleSpeed * 2) {
+                this.vx *= 0.95;
+                this.vy *= 0.95;
+            }
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+            ctx.fill();
+        }
+    }
+
+    function init() {
+        resize();
+        particles = [];
+        for (let i = 0; i < settings.count; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = canvas.parentElement.offsetHeight || window.innerHeight;
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = 0; i < particles.length; i++) {
+            const p1 = particles[i];
+            p1.update();
+            p1.draw();
+
+            for (let j = i + 1; j < particles.length; j++) {
+                const p2 = particles[j];
+                const dx = p1.x - p2.x;
+                const dy = p1.y - p2.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < settings.distance) {
+                    ctx.beginPath();
+                    ctx.moveTo(p1.x, p1.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    const alpha = (1 - dist / settings.distance) * 0.2;
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+                    ctx.lineWidth = settings.connectionWidth;
+                    ctx.stroke();
+                }
+            }
+        }
+        animationId = requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', () => {
+        resize();
+        // Re-init particles to spread them over new space
+        particles.forEach(p => {
+            if (p.x > canvas.width) p.x = Math.random() * canvas.width;
+            if (p.y > canvas.height) p.y = Math.random() * canvas.height;
+        });
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+    });
+
+    window.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    init();
+    animate();
+})();
+
+(function() {
+    const canvas = document.getElementById('hero-btn-canvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animationId;
+
+    const settings = {
+        count: 20,
+        particleSpeed: 0.7,
+        particleRadius: 1.5,
+        connectionWidth: 0.6,
+        color: 'rgba(255, 255, 255, 0.5)'
+    };
+
+    class Particle {
+        constructor() {
+            this.init();
+        }
+
+        init() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.vx = (Math.random() - 0.5) * settings.particleSpeed;
+            this.vy = (Math.random() - 0.5) * settings.particleSpeed;
+            this.radius = Math.random() * settings.particleRadius + 0.5;
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = settings.color;
+            ctx.fill();
+        }
+    }
+
+    function init() {
+        resize();
+        particles = [];
+        for (let i = 0; i < settings.count; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    function resize() {
+        if (!canvas.parentElement) return;
+        const rect = canvas.parentElement.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = 0; i < particles.length; i++) {
+            const p1 = particles[i];
+            p1.update();
+            p1.draw();
+
+            for (let j = i + 1; j < particles.length; j++) {
+                const p2 = particles[j];
+                const dx = p1.x - p2.x;
+                const dy = p1.y - p2.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < 50) {
+                    ctx.beginPath();
+                    ctx.moveTo(p1.x, p1.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    const alpha = (1 - dist / 50) * 0.4;
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+                    ctx.lineWidth = settings.connectionWidth;
+                    ctx.stroke();
+                }
+            }
+        }
+        animationId = requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', init);
+    
+    // Ensure correct sizing on hover as well
+    canvas.parentElement.addEventListener('mouseenter', init);
+
+    init();
+    animate();
+})();
+</script>

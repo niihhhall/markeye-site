@@ -1,0 +1,171 @@
+<section class="about-section section-padding" id="about">
+    <div class="container">
+        <div class="text-center reveal mb-16">
+            <h2 class="section-title">EVERY SYSTEM IS BUILT BY THE FOUNDER.<br>NOT DELEGATED. NOT TEMPLATED.</h2>
+        </div>
+        
+        <div class="about-grid">
+            <div class="about-image reveal">
+                <div class="image-wrapper">
+                    <!-- Placeholder for Nihal's photo -->
+                    <div class="photo-wrapper">
+                        <img src="assets/Red Masked Boldness.png" alt="Nihal Mishra" class="founder-img">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-content reveal" data-delay="0.2">
+                <span class="badge">FOUNDER // NIHAL MISHRA</span>
+                <p class="about-intro">I build AI infrastructure for founders who refuse to delegate their core systems to template agencies.</p>
+                
+                <div class="about-story">
+                    <p>At Markeye, you don't hire a service; you install an asset. I architect every line of code personally from 6am–9am. On Day 14, I hand over the keys. <strong>Full ownership. Zero management.</strong></p>
+                    <p>I document every build, every system, and every outcome live on LinkedIn.</p>
+                </div>
+
+                <div class="about-socials">
+                    <a href="https://www.linkedin.com/in/niihhhalll/" target="_blank" class="about-btn">
+                        <img src="assets/linkedin-svgrepo-com.svg" class="btn-icon" alt="LinkedIn">
+                        <span>CONNECT ON LINKEDIN</span>
+                        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <style>
+                .about-btn .btn-arrow {
+                    margin-left: 10px;
+                    opacity: 0.6;
+                    transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.3s ease;
+                }
+                .about-btn:hover .btn-arrow {
+                    transform: translateX(4px);
+                    opacity: 1;
+                }
+                </style>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.about-section {
+    background: #000;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.image-wrapper {
+    position: relative;
+    padding-top: 125%; /* 4:5 aspect ratio */
+    background: var(--bg-surface);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.photo-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.about-intro {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.about-story p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.about-story strong {
+    color: white;
+}
+
+.about-socials {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3.5rem;
+}
+
+.about-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 1.25rem 2.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    color: white;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-btn:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 0, 0, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.about-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255, 0, 0, 0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.about-btn:hover::before {
+    opacity: 1;
+}
+
+.founder-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9) contrast(1.1);
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.about-btn .btn-icon {
+    width: 18px;
+    height: 18px;
+    filter: invert(1);
+    margin-right: 12px;
+}
+
+.about-image:hover .founder-img {
+    transform: scale(1.05);
+}
+
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+</style>

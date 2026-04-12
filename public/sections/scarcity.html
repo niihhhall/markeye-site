@@ -1,0 +1,212 @@
+<section class="scarcity-section section-padding" id="scarcity">
+    <div class="container text-center">
+        <div class="reveal mb-12">
+            <h2 class="section-title">5 INSTALLS PER MONTH.<br>NOT BECAUSE WE CAN'T SCALE.<br>BECAUSE EVERY BUILD GETS NIHAL.</h2>
+        </div>
+        
+        <div class="scarcity-content reveal mt-12">
+            <p class="large-text">
+                Every Markeye client gets the same thing:<br>
+                <strong>the founder, on their build, from Day 1.</strong>
+            </p>
+            <p class="mt-8 text-secondary">
+                Not an account manager. Not an offshore team.<br>
+                The person who architected the system, running your system.<br>
+                <strong>That's only possible at 5 clients per month.</strong>
+            </p>
+            <p class="mt-4 text-secondary">So we take 5. Not 50.</p>
+        </div>
+
+        <div class="scarcity-cta-container mt-16 reveal">
+            <a href="#final-cta" class="btn-primary btn-lg btn-shimmer">
+                <canvas id="scarcity-btn-canvas"></canvas>
+                <span class="relative z-10">Apply for a Spot</span>
+            </a>
+            <div class="availability mt-6">
+                <span class="pulse-icon"></span>
+                <span>Next available slot: **May 2026**</span>
+                <span class="divider">|</span>
+                <span>**2 of 5 spots remaining** this month</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.scarcity-section {
+    background: #000;
+}
+
+.scarcity-content p {
+    font-size: 1.5rem;
+    color: white;
+    line-height: 1.4;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.scarcity-content .text-secondary {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+}
+
+.scarcity-cta-container .availability {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.scarcity-cta-container .availability strong {
+    color: white;
+}
+
+.pulse-icon {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #00ff00;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
+    animation: pulse-green 2s infinite;
+}
+
+.scarcity-cta-container .btn-primary {
+    position: relative;
+    overflow: hidden;
+    z-index: 5;
+}
+
+#scarcity-btn-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 1;
+}
+
+.scarcity-cta-container .relative {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes pulse-green {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
+}
+
+@media (max-width: 768px) {
+    .scarcity-content p {
+        font-size: 1.1rem;
+    }
+    .scarcity-cta-container .availability {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .availability .divider { display: none; }
+}
+</style>
+
+<script>
+(function() {
+    const canvas = document.getElementById('scarcity-btn-canvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animationId;
+
+    const settings = {
+        count: 20,
+        particleSpeed: 0.7,
+        particleRadius: 1.5,
+        connectionWidth: 0.6,
+        color: 'rgba(255, 255, 255, 0.5)'
+    };
+
+    class Particle {
+        constructor() {
+            this.init();
+        }
+
+        init() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.vx = (Math.random() - 0.5) * settings.particleSpeed;
+            this.vy = (Math.random() - 0.5) * settings.particleSpeed;
+            this.radius = Math.random() * settings.particleRadius + 0.5;
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = settings.color;
+            ctx.fill();
+        }
+    }
+
+    function init() {
+        resize();
+        particles = [];
+        for (let i = 0; i < settings.count; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    function resize() {
+        if (!canvas.parentElement) return;
+        const rect = canvas.parentElement.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = 0; i < particles.length; i++) {
+            const p1 = particles[i];
+            p1.update();
+            p1.draw();
+
+            for (let j = i + 1; j < particles.length; j++) {
+                const p2 = particles[j];
+                const dx = p1.x - p2.x;
+                const dy = p1.y - p2.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < 50) {
+                    ctx.beginPath();
+                    ctx.moveTo(p1.x, p1.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    const alpha = (1 - dist / 50) * 0.4;
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+                    ctx.lineWidth = settings.connectionWidth;
+                    ctx.stroke();
+                }
+            }
+        }
+        animationId = requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', init);
+    canvas.parentElement.addEventListener('mouseenter', init);
+
+    init();
+    animate();
+})();
+</script>
