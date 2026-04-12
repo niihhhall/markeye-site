@@ -43,8 +43,11 @@
 
     <!-- Modular Loader Script -->
     <script type="module">
-        import { inject } from '@vercel/speed-insights';
-        inject();
+        import { inject as injectSpeed } from '@vercel/speed-insights';
+        import { inject as injectAnalytics } from '@vercel/analytics';
+        
+        injectSpeed();
+        injectAnalytics();
 
         async function loadSection(id, file) {
             try {
