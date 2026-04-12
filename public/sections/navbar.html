@@ -236,24 +236,37 @@
 <script>
 // Mobile Menu Controller
 (function() {
-    const nav = document.querySelector('.navbar-container');
-    const toggle = document.querySelector('.mobile-toggle');
-    const links = document.querySelectorAll('.nav-links a');
+    const initMobileMenu = () => {
+        const nav = document.querySelector('.navbar-container');
+        const toggle = document.querySelector('.mobile-toggle');
+        const links = document.querySelectorAll('.nav-links a');
 
-    if (!toggle || !nav) return;
+        if (!toggle || !nav) {
+            console.warn('Mobile menu elements not found, retrying...');
+            setTimeout(initMobileMenu, 100);
+            return;
+        }
 
-    toggle.addEventListener('click', () => {
-        nav.classList.toggle('is-active');
-        document.body.style.overflow = nav.classList.contains('is-active') ? 'hidden' : '';
-    });
+        console.log('Mobile menu initialized');
 
-    // Close menu when a link is clicked
-    links.forEach(link => {
-        link.addEventListener('click', () => {
-            nav.classList.remove('is-active');
-            document.body.style.overflow = '';
+        toggle.onclick = (e) => {
+            e.preventDefault();
+            console.log('Toggle clicked');
+            nav.classList.toggle('is-active');
+            document.body.style.overflow = nav.classList.contains('is-active') ? 'hidden' : '';
+        };
+
+        // Close menu when a link is clicked
+        links.forEach(link => {
+            link.onclick = () => {
+                nav.classList.remove('is-active');
+                document.body.style.overflow = '';
+            };
         });
-    });
+    };
+
+    // Execute with a small delay to ensure DOM is ready after injection
+    setTimeout(initMobileMenu, 50);
 })();
 (function() {
     const canvas = document.getElementById('navbar-canvas');
