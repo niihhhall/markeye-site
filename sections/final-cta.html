@@ -239,23 +239,29 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .final-cta-box {
         padding: 4rem 1.5rem;
     }
     #my-cal-inline-1on1 {
         height: 750px;
+        min-height: 750px;
     }
     .trust-grid {
-        flex-direction: column;
+        display: flex;
+        flex-direction: column !important;
+        align-items: stretch !important;
         width: 100%;
-        margin-top: 2rem; /* Safety gap specifically for mobile grid */
+        max-width: 450px;
+        margin: 3rem auto 0 auto;
+        gap: 1.25rem;
     }
     .trust-chip {
-        width: 100%;
+        width: 100% !important;
+        justify-content: flex-start;
     }
     .premium-status-hub {
-        margin-top: 5rem; /* Increased top margin for mobile vertical stacking */
+        margin-top: 6rem; /* Substantial gap for mobile safety */
     }
 }
 </style>
