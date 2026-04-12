@@ -153,25 +153,108 @@
 .mobile-toggle {
     display: none;
     flex-direction: column;
-    gap: 4px;
-    background: none;
-    border: none;
+    justify-content: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
     cursor: pointer;
+    z-index: 1001;
+    transition: all 0.3s ease;
+    padding: 10px;
 }
 
 .mobile-toggle span {
     width: 24px;
     height: 2px;
     background: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+/* Active State for Hamburger */
+.is-active .mobile-toggle {
+    background: rgba(255, 0, 0, 0.1);
+    border-color: rgba(255, 0, 0, 0.2);
+}
+
+.is-active .mobile-toggle span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.is-active .mobile-toggle span:nth-child(2) {
+    opacity: 0;
+}
+
+.is-active .mobile-toggle span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 @media (max-width: 992px) {
-    .nav-links { display: none; }
+    .nav-links {
+        position: fixed;
+        top: 7rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(-20px);
+        width: 90%;
+        max-width: 400px;
+        background: rgba(10, 10, 10, 0.88);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 28px;
+        padding: 2.5rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        pointer-events: none;
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+    }
+
+    .is-active .nav-links {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+        pointer-events: all;
+    }
+
+    .mobile-toggle {
+        display: flex;
+    }
+    
+    .nav-actions .nav-cta {
+        display: none; /* Hide CTA button on small screens to make room for hamburger */
     }
 }
 </style>
 
 <script>
+// Mobile Menu Controller
+(function() {
+    const nav = document.querySelector('.navbar-container');
+    const toggle = document.querySelector('.mobile-toggle');
+    const links = document.querySelectorAll('.nav-links a');
+
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener('click', () => {
+        nav.classList.toggle('is-active');
+        document.body.style.overflow = nav.classList.contains('is-active') ? 'hidden' : '';
+    });
+
+    // Close menu when a link is clicked
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('is-active');
+            document.body.style.overflow = '';
+        });
+    });
+})();
 (function() {
     const canvas = document.getElementById('navbar-canvas');
     if (!canvas) return;
