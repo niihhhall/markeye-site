@@ -21,7 +21,9 @@
     <nav class="nav-main">
         <div class="nav-container">
             <a href="/" class="logo">
-                <img src="/assets/Black Red_cropped_processed_by_imagy.jpg" alt="Markeye Logo" class="logo-img">
+                <div class="logo-visual-container">
+                    <img src="/assets/Black Red_cropped_processed_by_imagy.jpg" alt="Markeye Logo" class="logo-img">
+                </div>
                 <div class="logo-text-group">
                     <span class="logo-brand">Markeye</span>
                     <span class="logo-meta">INFRA · New Delhi / IND</span>
@@ -158,13 +160,26 @@
     color: var(--text-primary);
 }
 
+.logo-visual-container {
+    padding: 2px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
 .logo-img {
-    height: 48px;
+    height: 40px; /* Slightly more compact for better alignment */
     width: auto;
     display: block;
     object-fit: contain;
-    /* Optional: Add a subtle border if it helps the brutalist look */
-    /* border: 1px solid var(--border-color); */
+}
+
+.logo:hover .logo-visual-container {
+    border-color: var(--accent);
+    transform: translateY(-1px);
 }
 
 .logo-text-group {
@@ -174,20 +189,26 @@
 
 .logo-brand {
     font-family: var(--font-sans);
-    font-weight: 850;
-    font-size: 1.2rem;
-    line-height: 1;
+    font-weight: 900; /* Heavier for more impact */
+    font-size: 1.15rem;
+    line-height: 0.9;
     color: var(--text-primary);
     text-transform: uppercase;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.04em; /* Tighter for premium feel */
+    transition: color 0.3s ease;
+}
+
+.logo:hover .logo-brand {
+    color: var(--accent);
 }
 
 .logo-meta {
     font-family: var(--font-mono);
-    font-size: 0.5rem;
+    font-size: 0.55rem;
     font-weight: 700;
     color: var(--text-secondary);
-    margin-top: 0.2rem;
+    margin-top: 0.25rem;
+    letter-spacing: 0.05em;
 }
 
 .nav-menu {
