@@ -44,7 +44,7 @@
                     <!-- Main Image -->
                     <div class="plate-image-container">
                         <div class="plate-scan-line"></div>
-                        <img src="assets/2f81005a0fe221db96710a72f83c2206.jpg" alt="Markeye AI Infrastructure" class="plate-image">
+                        <img src="assets/hero-tech.png" alt="Markeye AI Core" class="plate-image tech-asset">
                         <div class="plate-meta-overlay">
                             <span class="mono">LOAD: 84%</span>
                             <span class="mono">STATUS: ACTIVE</span>
@@ -139,13 +139,18 @@
     width: 100%;
     height: auto;
     display: block;
-    filter: contrast(1.1);
+    filter: contrast(1.1) drop-shadow(0 0 20px rgba(255, 51, 51, 0.1));
     transition: all 0.8s var(--ease-out-expo);
+}
+
+.tech-asset {
+    padding: 2rem; /* Give the isolated asset some breathing room */
+    object-fit: contain;
 }
 
 .hero-plate:hover .plate-image {
     transform: scale(1.08);
-    filter: grayscale(0) contrast(1.1);
+    filter: contrast(1.2) drop-shadow(0 0 40px rgba(255, 51, 51, 0.3));
 }
 
 .plate-scan-line {
