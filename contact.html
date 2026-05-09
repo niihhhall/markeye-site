@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Markeye AI Infrastructure</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        :root {
+            --contact-grid-gap: var(--space-3xl);
+        }
+
+        .contact-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-main);
+        }
+
+        .contact-hero {
+            padding-top: calc(var(--section-padding) * 0.8);
+            padding-bottom: var(--space-3xl);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: var(--contact-grid-gap);
+            margin-top: var(--space-4xl);
+        }
+
+        /* --- Form Section --- */
+        .contact-terminal {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2xl);
+        }
+
+        .terminal-header {
+            border-left: 4px solid var(--accent);
+            padding-left: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .terminal-header h1 {
+            font-size: var(--font-size-4xl);
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 0.9;
+        }
+
+        .protocol-label {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.2em;
+        }
+
+        /* --- Custom Form --- */
+        .markeye-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-label {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+        }
+
+        .form-input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border-color);
+            padding: var(--space-md) 0;
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-bottom-color: var(--accent);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255,255,255,0.1);
+        }
+
+        .form-select {
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .form-submit-row {
+            grid-column: span 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--space-xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .submit-status {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Visual Section --- */
+        .contact-visuals {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xl);
+        }
+
+        .visual-frame {
+            border: 1px dashed var(--border-color);
+            aspect-ratio: 4/5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: rgba(255,255,255,0.02);
+            overflow: hidden;
+        }
+
+        .visual-label {
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            position: absolute;
+            bottom: var(--space-md);
+            left: var(--space-md);
+        }
+
+        .visual-placeholder-text {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.05);
+            transform: rotate(-45deg);
+            white-space: nowrap;
+        }
+
+        .meta-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+        }
+
+        .meta-card {
+            border: 1px solid var(--border-color);
+            padding: var(--space-lg);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .meta-card h3 {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        .meta-card p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .markeye-form {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            .form-submit-row {
+                grid-column: span 1;
+                flex-direction: column;
+                gap: var(--space-lg);
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <div id="navbar"></div>
+
+    <main class="contact-page">
+        <section class="contact-hero">
+            <div class="container">
+                <div class="section-label">
+                    <span class="label-num">VIII.</span>
+                    <span class="mono">COMMUNICATION_TERMINAL // V1.0</span>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Left: The Terminal -->
+                    <div class="contact-terminal">
+                        <div class="terminal-header">
+                            <span class="protocol-label">INITIATE_ONBOARDING_PROTOCOL</span>
+                            <h1>Let's build your <span class="accent-dot">AI workforce.</span></h1>
+                        </div>
+
+                        <form class="markeye-form">
+                            <div class="form-group">
+                                <label class="form-label">IDENTITY_NAME</label>
+                                <input type="text" class="form-input" placeholder="What should we call you?">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">SIGNAL_EMAIL</label>
+                                <input type="email" class="form-input" placeholder="Where can we reach you?">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">OBJECTIVE_TYPE</label>
+                                <select class="form-input form-select">
+                                    <option value="" disabled selected>Select Infrastructure</option>
+                                    <option>AI SDR Systems</option>
+                                    <option>Autonomous Ops</option>
+                                    <option>Full Agency Stack</option>
+                                    <option>Custom Protocol</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">ALLOCATED_RESOURCES</label>
+                                <select class="form-input form-select">
+                                    <option value="" disabled selected>Select Range</option>
+                                    <option>$2k - $5k / mo</option>
+                                    <option>$5k - $10k / mo</option>
+                                    <option>$10k+ / mo</option>
+                                </select>
+                            </div>
+                            <div class="form-group full-width">
+                                <label class="form-label">MISSION_PARAMETERS</label>
+                                <textarea class="form-input" rows="4" placeholder="Briefly explain your current bottleneck..."></textarea>
+                            </div>
+                            <div class="form-submit-row">
+                                <div class="submit-status">
+                                    READY_TO_TRANSMIT // SECURE_ENCRYPTION_ACTIVE
+                                </div>
+                                <button type="submit" class="btn-primary">Initialize Protocol ★</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Right: Visual Aesthetics -->
+                    <div class="contact-visuals">
+                        <div class="visual-frame">
+                            <span class="visual-label">ASSET_01 // SYSTEM_OVERVIEW</span>
+                            <div class="visual-placeholder-text">
+                                MARKEYE_VISUAL_TERMINAL_RESERVED
+                            </div>
+                            <!-- Image will go here -->
+                        </div>
+
+                        <div class="meta-cards">
+                            <div class="meta-card">
+                                <h3>Direct_Link</h3>
+                                <p>hello@markeye.ai<br>+91 98XX XXX XXX</p>
+                            </div>
+                            <div class="meta-card">
+                                <h3>Global_HQ</h3>
+                                <p>New Delhi, India<br>Open / Earth</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+        // Modular loading logic for navbar/footer
+        async function loadSection(id, file) {
+            try {
+                const response = await fetch(`sections/${file}`);
+                const content = await response.text();
+                const container = document.getElementById(id);
+                if (!container) return;
+                
+                const temp = document.createElement('div');
+                temp.innerHTML = content;
+                
+                // Styles
+                const styles = temp.querySelectorAll('style');
+                styles.forEach(style => {
+                    const styleId = `style-${file.replace('.html', '')}`;
+                    if (!document.getElementById(styleId)) {
+                        const newStyle = document.createElement('style');
+                        newStyle.id = styleId;
+                        newStyle.textContent = style.textContent;
+                        document.head.appendChild(newStyle);
+                    }
+                    style.remove();
+                });
+                
+                container.innerHTML = temp.innerHTML;
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        async function init() {
+            await Promise.all([
+                loadSection('navbar', 'navbar.html'),
+                loadSection('footer', 'footer.html')
+            ]);
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
