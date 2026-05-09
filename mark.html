@@ -188,7 +188,6 @@
         </section>
     </main>
 
-    <div id="final-cta"></div>
     <div id="footer"></div>
 
     <!-- Modular Loader Script -->
@@ -199,25 +198,17 @@
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 const content = await response.text();
                 const container = document.getElementById(id);
-                if (!container) return;
-
                 const temp = document.createElement('div');
                 temp.innerHTML = content;
                 
-                // Styles
                 const styles = temp.querySelectorAll('style');
                 styles.forEach(style => {
-                    const styleId = `style-${file.replace('.html', '')}`;
-                    if (!document.getElementById(styleId)) {
-                        const newStyle = document.createElement('style');
-                        newStyle.id = styleId;
-                        newStyle.textContent = style.textContent;
-                        document.head.appendChild(newStyle);
-                    }
+                    const newStyle = document.createElement('style');
+                    newStyle.textContent = style.textContent;
+                    document.head.appendChild(newStyle);
                     style.remove();
                 });
                 
-                // Scripts
                 const scripts = temp.querySelectorAll('script');
                 container.innerHTML = temp.innerHTML;
                 
@@ -233,11 +224,8 @@
         }
 
         async function initApp() {
-            await Promise.all([
-                loadSection('navbar', 'navbar.html'),
-                loadSection('final-cta', 'final-cta.html'),
-                loadSection('footer', 'footer.html')
-            ]);
+            await loadSection('navbar', 'navbar.html');
+            await loadSection('footer', 'footer.html');
             initAnimations();
         }
 
