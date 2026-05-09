@@ -1,385 +1,346 @@
-<nav class="navbar-container glass">
-    <canvas id="navbar-canvas"></canvas>
-    <div class="navbar-content">
-        <a href="#hero" class="logo">
-            <img src="assets/Black Red_cropped_processed_by_imagy.jpg" alt="Markeye Logo" class="logo-img">
-            <span class="logo-text">Markeye</span>
-        </a>
-        
-        <ul class="nav-links">
-            <li><a href="#services">Services</a></li>
-            <li><a href="#how-it-works">Process</a></li>
-            <li><a href="#faqs">FAQ</a></li>
-        </ul>
-        
-        <div class="nav-actions">
-            <a href="#final-cta" class="nav-cta">
-                <canvas id="button-canvas"></canvas>
-                <span class="relative z-10">Apply for a Spot</span>
-            </a>
-            <button class="mobile-toggle" aria-label="Toggle Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+<header class="site-header">
+    <!-- Top Utility Bar -->
+    <div class="nav-utility">
+        <div class="nav-container">
+            <div class="utility-left">
+                <span class="meta-label">MK / <span class="number-accent">2026</span> · VOL. <span class="number-accent">01</span> / ISSUE Nº <span class="number-accent">08</span></span>
+            </div>
+            <div class="utility-center">
+                <span class="meta-label accent-label">AI · INFRASTRUCTURE</span>
+            </div>
+            <div class="utility-right">
+                <div class="nav-status">
+                    <span class="nav-pulse-dot"></span>
+                    <span class="meta-label">SYSTEM ONLINE // <span class="number-accent">2</span> SPOTS LEFT</span>
+                </div>
+            </div>
         </div>
     </div>
-</nav>
+
+    <!-- Main Navbar -->
+    <nav class="nav-main">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-glyph">Ø</span>
+                <div class="logo-text-group">
+                    <span class="logo-brand">Markeye</span>
+                    <span class="logo-meta">INFRA · New Delhi / IND</span>
+                </div>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="index.html">Home<sup>00</sup></a></li>
+                <li><a href="index.html#services">Services<sup>01</sup></a></li>
+                <li><a href="index.html#how-it-works">Process<sup>02</sup></a></li>
+                <li><a href="mark.html">DEMO<sup>03</sup></a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="contact.html" class="btn-nav-ghost">CONTACT US</a>
+                <!-- <a href="contact.html" class="btn-nav-solid">APPLY ★</a> -->
+                
+                <button class="mobile-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
 
 <style>
-.nav-cta {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    padding: 0.8rem 2rem;
-    background: var(--accent);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 999px;
-    color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 700;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-#button-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
+.site-header {
     width: 100%;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
-    opacity: 0.8;
-}
-
-.nav-cta span {
-    position: relative;
-    z-index: 2;
-}
-
-.nav-cta .icon-circle {
-    position: relative;
-    z-index: 2;
-}
-
-.nav-cta:hover {
-    background: #ff1a1a;
-    transform: translateY(-1px);
-    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
-}
-
-.nav-cta .icon-circle {
-    width: 2.4rem;
-    height: 2.4rem;
-    background: #000;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-}
-
-.nav-cta:hover .icon-circle {
-    transform: scale(1.05) rotate(-45deg);
-}
-#navbar-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
-    border-radius: 999px;
-    opacity: 0.3;
-}
-
-.navbar-container {
-    position: fixed;
-    top: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 94%;
-    max-width: 1200px;
-    height: 4.5rem;
+    background: var(--bg-main);
     z-index: 1000;
-    border-radius: 999px;
-    padding: 0 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
-.navbar-content {
-    width: 100%;
+.nav-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
-    z-index: 2;
+    width: 100%;
 }
 
-/* Branding styles moved to main.css */
-
-.nav-links {
+/* --- Top Utility Bar --- */
+.nav-utility {
+    height: 32px;
+    border-bottom: 1px solid var(--border-color);
     display: flex;
-    gap: 2rem;
+    align-items: center;
+}
+
+.nav-utility .nav-container > div {
+    flex: auto;
+}
+
+.utility-center {
+    text-align: center;
+}
+
+.utility-right {
+    text-align: right;
+}
+
+.meta-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+}
+
+.accent-label {
+    color: var(--accent);
+}
+
+.nav-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-pulse-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: navPulse 2s infinite;
+    flex-shrink: 0;
+}
+
+@keyframes navPulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* --- Main Navbar --- */
+.nav-main {
+    height: 88px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+}
+
+.nav-main .nav-container > div, 
+.nav-main .nav-container > a,
+.nav-main .nav-container > ul {
+    flex: 1;
+}
+
+.nav-main .nav-container .nav-menu {
+    justify-content: center;
+    flex: 2; /* Give menu more space in the center */
+}
+
+.nav-main .nav-container .nav-actions {
+    justify-content: flex-end;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.logo-glyph {
+    font-size: 1.5rem;
+    font-weight: 850;
+    color: var(--text-primary);
+}
+
+.logo-text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-brand {
+    font-family: var(--font-sans);
+    font-weight: 850;
+    font-size: 1.2rem;
+    line-height: 1;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.logo-meta {
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-top: 0.2rem;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 4rem; /* Increased gap */
     list-style: none;
 }
 
-.nav-links a {
-    color: var(--text-secondary);
+.nav-menu a {
     text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
+    font-family: var(--font-sans);
+    font-weight: 750;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
     transition: color 0.3s ease;
+    position: relative;
+    white-space: nowrap;
 }
 
-.nav-links a:hover {
+.nav-menu a sup {
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    font-weight: 700;
+    margin-left: 2px;
+    color: var(--text-muted);
+}
+
+.nav-menu a:hover {
+    color: var(--text-primary);
+}
+
+/* --- Nav Actions --- */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Increased gap */
+}
+
+.btn-nav-ghost {
+    padding: 0.7rem 1.5rem; /* Slightly larger */
+    border: 1px solid var(--accent);
+    border-radius: 99px;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-nav-ghost:hover {
+    background: var(--accent);
     color: white;
 }
 
-.btn-sm {
-    padding: 0.5rem 1.2rem;
-    font-size: 0.9rem;
+.btn-nav-solid {
+    padding: 0.7rem 1.5rem; /* Slightly larger */
+    background: var(--accent);
+    color: white;
+    border-radius: 99px;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-nav-solid:hover {
+    background: var(--text-primary);
+    color: white;
+    transform: translateY(-1px);
 }
 
 .mobile-toggle {
     display: none;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
     background: none;
     border: none;
     cursor: pointer;
+    padding: 0.5rem;
 }
 
 .mobile-toggle span {
     width: 24px;
-    height: 2px;
-    background: white;
+    height: 1.5px;
+    background: var(--text-primary);
 }
 
-@media (max-width: 992px) {
-    .nav-links { display: none; }
+@media (max-width: 1024px) {
+    .nav-container { padding: 0 var(--container-padding); }
+    .nav-menu, .utility-center { display: none; }
+    .mobile-toggle { display: flex; }
+    .nav-main { height: 72px; }
+    .btn-nav-ghost { display: none; }
+
+    .nav-utility .nav-container {
+        justify-content: space-between;
+    }
+
+    .utility-left .meta-label span:not(.number-accent) {
+        display: none; /* Hide 'VOL.' and 'ISSUE Nº' on mobile to save space */
+    }
+
+    .nav-status .meta-label {
+        white-space: nowrap;
+    }
+
+    /* Mobile Menu Dropdown */
+    .site-header.is-open .nav-menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 104px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 104px);
+        background: var(--bg-main);
+        padding: var(--space-2xl) var(--container-padding);
+        border-bottom: 1px solid var(--border-color);
+        gap: var(--space-xl);
+        z-index: 100;
+        overflow-y: auto;
+    }
+
+    .site-header.is-open .nav-menu a {
+        font-family: var(--font-serif);
+        font-size: var(--font-size-2xl);
+        width: 100%;
+        display: block;
+        color: var(--text-primary);
     }
 }
+
+@media (max-width: 480px) {
+    .utility-left {
+        display: none; /* Only show status on very small screens */
+    }
+    .nav-utility .nav-container {
+        justify-content: center;
+    }
+}
+
 </style>
 
 <script>
 (function() {
-    const canvas = document.getElementById('navbar-canvas');
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let animationId;
-    let mouse = { x: null, y: null };
+    const initNavbar = () => {
+        const header = document.querySelector('.site-header');
+        const toggle = document.querySelector('.mobile-toggle');
+        
+        if (!toggle) return;
 
-    const settings = {
-        count: window.innerWidth < 768 ? 15 : 25,
-        distance: 100,
-        particleSpeed: 0.3,
-        particleRadius: 1,
-        connectionWidth: 0.4,
-        mouseRadius: 150
+        toggle.addEventListener('click', () => {
+            header.classList.toggle('is-open');
+            document.body.classList.toggle('menu-open');
+        });
     };
 
-    class Particle {
-        constructor() {
-            this.init();
-        }
-
-        init() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.vx = (Math.random() - 0.5) * settings.particleSpeed;
-            this.vy = (Math.random() - 0.5) * settings.particleSpeed;
-            this.radius = Math.random() * settings.particleRadius + 0.3;
-            this.alpha = Math.random() * 0.3 + 0.1;
-        }
-
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-
-            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-
-            if (mouse.x !== null) {
-                const dx = mouse.x - this.x;
-                const dy = mouse.y - this.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < settings.mouseRadius) {
-                    const force = (settings.mouseRadius - dist) / settings.mouseRadius;
-                    this.vx -= dx * force * 0.003;
-                    this.vy -= dy * force * 0.003;
-                }
-            }
-        }
-
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
-            ctx.fill();
-        }
-    }
-
-    function init() {
-        resize();
-        particles = [];
-        for (let i = 0; i < settings.count; i++) {
-            particles.push(new Particle());
-        }
-    }
-
-    function resize() {
-        if (!canvas.parentElement) return;
-        const rect = canvas.parentElement.getBoundingClientRect();
-        canvas.width = rect.width;
-        canvas.height = rect.height;
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        for (let i = 0; i < particles.length; i++) {
-            const p1 = particles[i];
-            p1.update();
-            p1.draw();
-
-            for (let j = i + 1; j < particles.length; j++) {
-                const p2 = particles[j];
-                const dx = p1.x - p2.x;
-                const dy = p1.y - p2.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (dist < settings.distance) {
-                    ctx.beginPath();
-                    ctx.moveTo(p1.x, p1.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    const alpha = (1 - dist / settings.distance) * 0.1;
-                    ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
-                    ctx.lineWidth = settings.connectionWidth;
-                    ctx.stroke();
-                }
-            }
-        }
-        animationId = requestAnimationFrame(animate);
-    }
-
-    window.addEventListener('resize', init);
-
-    window.addEventListener('mousemove', (e) => {
-        const rect = canvas.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
-    });
-
-    init();
-    animate();
-})();
-
-(function() {
-    const canvas = document.getElementById('button-canvas');
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let animationId;
-
-    const settings = {
-        count: 15,
-        particleSpeed: 0.8,
-        particleRadius: 1.2,
-        connectionWidth: 0.5,
-        color: 'rgba(255, 255, 255, 0.4)'
-    };
-
-    class Particle {
-        constructor() {
-            this.init();
-        }
-
-        init() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.vx = (Math.random() - 0.5) * settings.particleSpeed;
-            this.vy = (Math.random() - 0.5) * settings.particleSpeed;
-            this.radius = Math.random() * settings.particleRadius + 0.5;
-        }
-
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-
-            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-        }
-
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = settings.color;
-            ctx.fill();
-        }
-    }
-
-    function init() {
-        resize();
-        particles = [];
-        for (let i = 0; i < settings.count; i++) {
-            particles.push(new Particle());
-        }
-    }
-
-    function resize() {
-        if (!canvas.parentElement) return;
-        const rect = canvas.parentElement.getBoundingClientRect();
-        canvas.width = rect.width;
-        canvas.height = rect.height;
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        for (let i = 0; i < particles.length; i++) {
-            const p1 = particles[i];
-            p1.update();
-            p1.draw();
-
-            for (let j = i + 1; j < particles.length; j++) {
-                const p2 = particles[j];
-                const dx = p1.x - p2.x;
-                const dy = p1.y - p2.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (dist < 40) {
-                    ctx.beginPath();
-                    ctx.moveTo(p1.x, p1.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    const alpha = (1 - dist / 40) * 0.3;
-                    ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
-                    ctx.lineWidth = settings.connectionWidth;
-                    ctx.stroke();
-                }
-            }
-        }
-        animationId = requestAnimationFrame(animate);
-    }
-
-    window.addEventListener('resize', init);
-    
-    // Trigger resize on mouseenter to ensure canvas is correct
-    canvas.parentElement.addEventListener('mouseenter', init);
-
-    init();
-    animate();
+    setTimeout(initNavbar, 100);
 })();
 </script>
