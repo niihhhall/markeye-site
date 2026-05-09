@@ -77,7 +77,7 @@
 }
 
 .nav-utility .nav-container > div {
-    flex: 1;
+    flex: auto;
 }
 
 .utility-center {
@@ -113,6 +113,7 @@
     background: var(--accent);
     border-radius: 50%;
     animation: navPulse 2s infinite;
+    flex-shrink: 0;
 }
 
 @keyframes navPulse {
@@ -277,6 +278,18 @@
     .nav-main { height: 72px; }
     .btn-nav-ghost { display: none; }
 
+    .nav-utility .nav-container {
+        justify-content: space-between;
+    }
+
+    .utility-left .meta-label span:not(.number-accent) {
+        display: none; /* Hide 'VOL.' and 'ISSUE Nº' on mobile to save space */
+    }
+
+    .nav-status .meta-label {
+        white-space: nowrap;
+    }
+
     /* Mobile Menu Dropdown */
     .site-header.is-open .nav-menu {
         display: flex;
@@ -300,6 +313,15 @@
         width: 100%;
         display: block;
         color: var(--text-primary);
+    }
+}
+
+@media (max-width: 480px) {
+    .utility-left {
+        display: none; /* Only show status on very small screens */
+    }
+    .nav-utility .nav-container {
+        justify-content: center;
     }
 }
 
