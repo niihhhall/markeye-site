@@ -323,7 +323,16 @@
                     style.remove();
                 });
                 
+                // Scripts
+                const scripts = temp.querySelectorAll('script');
                 container.innerHTML = temp.innerHTML;
+                
+                scripts.forEach(script => {
+                    const newScript = document.createElement('script');
+                    newScript.textContent = script.textContent;
+                    document.body.appendChild(newScript);
+                    script.remove();
+                });
             } catch (e) {
                 console.error(e);
             }

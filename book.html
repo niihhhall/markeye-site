@@ -85,22 +85,7 @@
 <body class="booking-page">
     <div class="noise-overlay"></div>
 
-    <header class="site-header" style="position: static;">
-        <nav class="nav-main">
-            <div class="nav-container">
-                <a href="index.html" class="logo">
-                    <span class="logo-glyph">Ø</span>
-                    <div class="logo-text-group">
-                        <span class="logo-brand">Markeye</span>
-                        <span class="logo-meta">INFRA · New Delhi / IND</span>
-                    </div>
-                </a>
-                <div class="nav-actions">
-                    <a href="index.html" class="btn-nav-ghost">Back to Home</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <div id="navbar"></div>
 
     <main class="booking-container">
         <div class="container">
@@ -158,15 +143,55 @@
         </div>
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-meta" style="border-top: 1px solid var(--border-color); padding: var(--space-lg) 0;">
-                <div class="meta-left mono">MARKEYE AI INFRASTRUCTURE</div>
-                <div class="meta-right mono">
-                    <span class="number-accent">28.6139°</span> N, <span class="number-accent">77.2090°</span> E
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div id="footer"></div>
+
+    <script>
+        async function loadSection(id, file) {
+            try {
+                const response = await fetch(`sections/${file}`);
+                const content = await response.text();
+                const container = document.getElementById(id);
+                if (!container) return;
+                
+                const temp = document.createElement('div');
+                temp.innerHTML = content;
+                
+                // Styles
+                const styles = temp.querySelectorAll('style');
+                styles.forEach(style => {
+                    const styleId = `style-${file.replace('.html', '')}`;
+                    if (!document.getElementById(styleId)) {
+                        const newStyle = document.createElement('style');
+                        newStyle.id = styleId;
+                        newStyle.textContent = style.textContent;
+                        document.head.appendChild(newStyle);
+                    }
+                    style.remove();
+                });
+                
+                // Scripts
+                const scripts = temp.querySelectorAll('script');
+                container.innerHTML = temp.innerHTML;
+                
+                scripts.forEach(script => {
+                    const newScript = document.createElement('script');
+                    newScript.textContent = script.textContent;
+                    document.body.appendChild(newScript);
+                    script.remove();
+                });
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        async function init() {
+            await Promise.all([
+                loadSection('navbar', 'navbar.html'),
+                loadSection('footer', 'footer.html')
+            ]);
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
 </body>
 </html>
