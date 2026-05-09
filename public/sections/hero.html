@@ -1,465 +1,336 @@
-<section class="hero-section section-padding" id="hero">
-    <!-- Premium Background Layer -->
+<section class="hero-section" id="hero">
     <div class="hero-bg">
-        <canvas id="hero-canvas"></canvas>
-        <div class="noise-overlay"></div>
-        <div class="hero-glow"></div>
-        <div class="particles"></div>
-        <div class="grid-bg"></div>
-        <div class="gradient-overlay"></div>
+        <div class="grid-lines"></div>
     </div>
 
-    <div class="container hero-container text-center">
-        <div class="badge-wrapper reveal" data-delay="0.1">
-            <span class="badge glass">
-                <span class="pulse-dot"></span>
-                2 spots remaining.
-            </span>
-        </div>
-        
-        <h1 class="display-title display-title-long reveal" data-delay="0.2">
-            AI Employees for B2B SaaS Founders to own their infrastructure.
-        </h1>
-        
-        <p class="hero-description reveal" data-delay="0.3">
-            Autonomous growth systems for elite founders. Deploy a team of AI employees that research, reach out, and book meetings on autopilot while you own the asset forever.
-        </p>
-        
-        <div class="hero-actions reveal" data-delay="0.4">
-            <div class="cta-group">
-                <a href="#final-cta" class="btn-primary btn-lg btn-shimmer">
-                    <canvas id="hero-btn-canvas"></canvas>
-                    <span class="relative z-10">Apply for a Spot</span>
-                </a>
+    <div class="container">
+        <div class="hero-split">
+            <!-- Left: Text Content -->
+            <div class="hero-content">
+                <h1 class="display-title reveal" data-delay="0.2">
+                    THE <em style="color: var(--accent);">DONE-FOR-YOU</em><br>
+                    <span style="white-space: nowrap;">AI INFRASTRUCTURE</span> FOR FOUNDERS<span class="accent-dot">.</span>
+                </h1>
+                
+                <p class="hero-description reveal" data-delay="0.3">
+                    Stop hiring, start installing. We deploy a team of autonomous AI employees trained on your business to run your outbound, content, and ops — <em>permanently</em>.
+                </p>
+                
+                <div class="hero-actions reveal" data-delay="0.4">
+                    <a href="#final-cta" class="btn-primary">
+                        Apply for a Spot
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                </div>
             </div>
-            
 
+            <!-- Right: Hero Plate -->
+            <div class="hero-plate-wrapper reveal" data-delay="0.5">
+                <div class="hero-plate animate-float">
+                    <!-- Corner Brackets & Metadata -->
+                    <div class="plate-corner top-left">
+                        <span class="plate-label">FIG. 01 / MK-26</span>
+                    </div>
+                    <div class="plate-corner top-right">
+                        <span class="plate-label">PLATE Nº 01</span>
+                    </div>
+                    <div class="plate-corner bottom-left">
+                        <span class="plate-label">SHA · 2FDF14EB</span>
+                    </div>
+                    <div class="plate-corner bottom-right">
+                        <span class="plate-label">COMPOSED IN MARKEYE</span>
+                    </div>
+
+                    <!-- Main Image -->
+                    <div class="plate-image-container">
+                        <div class="plate-scan-line"></div>
+                        <img src="assets/2f81005a0fe221db96710a72f83c2206.jpg" alt="Markeye AI Infrastructure" class="plate-image">
+                        <div class="plate-meta-overlay">
+                            <span class="mono">LOAD: 84%</span>
+                            <span class="mono">STATUS: ACTIVE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
 <style>
-
 .hero-section {
-    min-height: 125vh; /* Compares to 100vh at 0.8 zoom (100/0.8 = 125) */
-    height: 125vh;
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
     position: relative;
-    padding: 0;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
     overflow: hidden;
+    background: var(--bg-main);
 }
 
 .hero-bg {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
     z-index: 1;
-}
-
-#hero-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0.6;
-}
-
-.particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(255, 0, 0, 0.05) 0%, transparent 70%);
-    z-index: 2;
     pointer-events: none;
 }
 
-.grid-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-    background-position: center;
-    mask-image: radial-gradient(circle at center, black, transparent 80%);
-    opacity: 0.5;
-}
-
-.gradient-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) 100%);
-}
-
-.hero-container {
-    position: relative;
-    z-index: 4;
-    text-align: center;
-}
-
-.noise-overlay {
+.grid-lines {
     position: absolute;
     inset: 0;
-    pointer-events: none;
-    z-index: 2;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.05;
-    mix-blend-mode: overlay;
+    background-image: 
+        linear-gradient(var(--border-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.1;
+    mask-image: radial-gradient(circle at center, black, transparent 80%);
+    transition: transform 0.2s var(--ease-out-expo);
 }
 
-.btn-primary {
+.hero-split {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 4rem;
+    align-items: center;
     position: relative;
-    overflow: hidden;
-    z-index: 5;
+    z-index: 2;
 }
 
-#hero-btn-canvas {
+.hero-content {
+    text-align: left;
+}
+
+.display-title {
+    margin-bottom: 2.5rem;
+    text-align: left;
+    font-size: clamp(3.5rem, 7vw, 6rem);
+}
+
+.hero-description {
+    margin-bottom: 3.5rem;
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    text-align: left;
+    max-width: 580px;
+}
+
+/* --- Hero Plate Styling --- */
+.hero-plate-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-plate {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    padding: 3rem;
+    transition: transform 0.15s var(--ease-out-expo);
+}
+
+.plate-image-container {
+    position: relative;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.plate-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: contrast(1.1);
+    transition: all 0.8s var(--ease-out-expo);
+}
+
+.hero-plate:hover .plate-image {
+    transform: scale(1.08);
+    filter: grayscale(0) contrast(1.1);
+}
+
+.plate-scan-line {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
-    opacity: 1;
+    height: 1px;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    z-index: 5;
+    opacity: 0.4;
+    animation: scan 4s linear infinite;
 }
 
-.btn-primary .relative {
-    position: relative;
-    z-index: 2;
+@keyframes scan {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(500px); }
 }
 
-.hero-glow {
+.plate-meta-overlay {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60%;
-    height: 60%;
-    background: radial-gradient(circle at center, rgba(255, 0, 0, 0.08) 0%, transparent 70%);
-    filter: blur(100px);
-    z-index: 1;
-    pointer-events: none;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    z-index: 6;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s var(--ease-out-expo);
 }
 
-.display-title-long {
-    font-size: clamp(2rem, 4.5vw, 3.2rem);
-    line-height: 1.1;
-    max-width: 1200px;
-    margin: 0 auto 2rem;
-    font-weight: 900;
-    letter-spacing: -0.03em;
-    background: linear-gradient(to bottom, #ffffff 0%, #a1a1a1 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+.hero-plate:hover .plate-meta-overlay {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.badge-wrapper {
-    margin-bottom: 2rem;
+.plate-meta-overlay span {
+    font-size: 0.6rem;
+    color: white;
+    letter-spacing: 0.2em;
+    background: rgba(0,0,0,0.8);
+    padding: 2px 6px;
+    width: fit-content;
 }
 
-.badge.glass {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.5rem 1rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--text-muted);
+/* --- Corner Brackets --- */
+.plate-corner {
+    position: absolute;
+    z-index: 3;
+    transition: all 0.5s var(--ease-out-expo);
+}
+
+.hero-plate:hover .plate-corner {
+    width: 4rem;
+    height: 4rem;
+    border-color: var(--accent) !important;
+}
+
+.plate-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
     font-weight: 700;
-    letter-spacing: 0.05em;
     text-transform: uppercase;
-    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    background: var(--bg-main);
+    padding: 0 0.5rem;
+    white-space: nowrap;
+}
+
+.top-left {
+    top: 1rem;
+    left: 1rem;
+    border-top: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+    width: 3rem;
+    height: 3rem;
+}
+.top-left .plate-label {
+    position: absolute;
+    top: -0.4rem;
+    left: 0.5rem;
+}
+
+.top-right {
+    top: 3.5rem;
+    right: 3.5rem;
+}
+.top-right .plate-label {
+    color: var(--accent);
+}
+
+.bottom-left {
+    bottom: 1rem;
+    left: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+    width: 3rem;
+    height: 3rem;
+}
+.bottom-left .plate-label {
+    position: absolute;
+    bottom: -0.4rem;
+    left: 0.5rem;
+}
+
+.bottom-right {
+    bottom: 3.5rem;
+    right: 3.5rem;
 }
 
 .pulse-dot {
     width: 6px;
     height: 6px;
-    background: #00ff88;
+    background: var(--accent);
     border-radius: 50%;
-    position: relative;
-    box-shadow: 0 0 10px #00ff88;
+    margin-right: 8px;
+    display: inline-block;
+    box-shadow: 0 0 10px var(--accent);
+    animation: pulse 2s infinite;
 }
 
-.pulse-dot::after {
-    content: '';
-    position: absolute;
-    inset: -4px;
-    border: 1px solid #00ff88;
-    border-radius: 50%;
-    animation: badge-pulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
-}
-
-@keyframes badge-pulse {
+@keyframes pulse {
     0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(3); opacity: 0; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
-.hero-description {
-    max-width: 850px;
-    margin: 0 auto 3rem auto;
-    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-    color: var(--text-secondary);
-    line-height: 1.5;
-}
-
-.btn-lg {
-    padding: 1.25rem 3.5rem;
-    font-size: 1.25rem;
-    border-radius: 12px;
-}
-
-@media (max-width: 768px) {
-    .cta-group {
-        flex-direction: column;
-        width: 100%;
-        gap: 1rem;
+@media (max-width: 992px) {
+    .hero-split {
+        grid-template-columns: 1fr;
+        gap: 5rem;
+    }
+    .hero-content {
+        text-align: center;
+    }
+    .display-title, .hero-description {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-plate-wrapper {
+        justify-content: center;
+    }
+    .hero-actions {
+        display: flex;
+        justify-content: center;
     }
 }
 </style>
 
 <script>
 (function() {
-    const canvas = document.getElementById('hero-canvas');
-    if (!canvas) return;
+    const hero = document.getElementById('hero');
+    const plate = document.querySelector('.hero-plate');
+    const grid = document.querySelector('.grid-lines');
     
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let animationId;
-    let mouse = { x: null, y: null };
-
-    const settings = {
-        count: window.innerWidth < 768 ? 40 : 80,
-        distance: 150,
-        particleSpeed: 0.5,
-        particleRadius: 1.5,
-        connectionWidth: 0.8,
-        mouseRadius: 200
-    };
-
-    class Particle {
-        constructor() {
-            this.init();
-        }
-
-        init() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.vx = (Math.random() - 0.5) * settings.particleSpeed;
-            this.vy = (Math.random() - 0.5) * settings.particleSpeed;
-            this.radius = Math.random() * settings.particleRadius + 0.5;
-            this.alpha = Math.random() * 0.5 + 0.2;
-        }
-
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-
-            // Boundary collision
-            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-
-            // Mouse interaction
-            if (mouse.x !== null) {
-                const dx = mouse.x - this.x;
-                const dy = mouse.y - this.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < settings.mouseRadius) {
-                    const force = (settings.mouseRadius - dist) / settings.mouseRadius;
-                    this.vx -= dx * force * 0.01;
-                    this.vy -= dy * force * 0.01;
-                }
-            }
-
-            // Limit speed
-            const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
-            if (speed > settings.particleSpeed * 2) {
-                this.vx *= 0.95;
-                this.vy *= 0.95;
-            }
-        }
-
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
-            ctx.fill();
-        }
-    }
-
-    function init() {
-        resize();
-        particles = [];
-        for (let i = 0; i < settings.count; i++) {
-            particles.push(new Particle());
-        }
-    }
-
-    function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = canvas.parentElement.offsetHeight || window.innerHeight;
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        for (let i = 0; i < particles.length; i++) {
-            const p1 = particles[i];
-            p1.update();
-            p1.draw();
-
-            for (let j = i + 1; j < particles.length; j++) {
-                const p2 = particles[j];
-                const dx = p1.x - p2.x;
-                const dy = p1.y - p2.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (dist < settings.distance) {
-                    ctx.beginPath();
-                    ctx.moveTo(p1.x, p1.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    const alpha = (1 - dist / settings.distance) * 0.2;
-                    ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
-                    ctx.lineWidth = settings.connectionWidth;
-                    ctx.stroke();
-                }
-            }
-        }
-        animationId = requestAnimationFrame(animate);
-    }
-
-    window.addEventListener('resize', () => {
-        resize();
-        // Re-init particles to spread them over new space
-        particles.forEach(p => {
-            if (p.x > canvas.width) p.x = Math.random() * canvas.width;
-            if (p.y > canvas.height) p.y = Math.random() * canvas.height;
-        });
-    });
-
-    window.addEventListener('mousemove', (e) => {
-        const rect = canvas.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
-    });
-
-    window.addEventListener('mouseleave', () => {
-        mouse.x = null;
-        mouse.y = null;
-    });
-
-    init();
-    animate();
-})();
-
-(function() {
-    const canvas = document.getElementById('hero-btn-canvas');
-    if (!canvas) return;
+    if (!hero || !plate) return;
     
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let animationId;
-
-    const settings = {
-        count: 20,
-        particleSpeed: 0.7,
-        particleRadius: 1.5,
-        connectionWidth: 0.6,
-        color: 'rgba(255, 255, 255, 0.5)'
-    };
-
-    class Particle {
-        constructor() {
-            this.init();
+    hero.addEventListener('mousemove', (e) => {
+        const rect = hero.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        // Plate parallax
+        const rotateX = (y - centerY) / 40;
+        const rotateY = (centerX - x) / 40;
+        plate.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        
+        // Grid subtle warp
+        const gridX = (x - centerX) / 100;
+        const gridY = (y - centerY) / 100;
+        if (grid) {
+            grid.style.transform = `translate(${gridX}px, ${gridY}px)`;
         }
-
-        init() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.vx = (Math.random() - 0.5) * settings.particleSpeed;
-            this.vy = (Math.random() - 0.5) * settings.particleSpeed;
-            this.radius = Math.random() * settings.particleRadius + 0.5;
-        }
-
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-
-            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-        }
-
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = settings.color;
-            ctx.fill();
-        }
-    }
-
-    function init() {
-        resize();
-        particles = [];
-        for (let i = 0; i < settings.count; i++) {
-            particles.push(new Particle());
-        }
-    }
-
-    function resize() {
-        if (!canvas.parentElement) return;
-        const rect = canvas.parentElement.getBoundingClientRect();
-        canvas.width = rect.width;
-        canvas.height = rect.height;
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        for (let i = 0; i < particles.length; i++) {
-            const p1 = particles[i];
-            p1.update();
-            p1.draw();
-
-            for (let j = i + 1; j < particles.length; j++) {
-                const p2 = particles[j];
-                const dx = p1.x - p2.x;
-                const dy = p1.y - p2.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (dist < 50) {
-                    ctx.beginPath();
-                    ctx.moveTo(p1.x, p1.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    const alpha = (1 - dist / 50) * 0.4;
-                    ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
-                    ctx.lineWidth = settings.connectionWidth;
-                    ctx.stroke();
-                }
-            }
-        }
-        animationId = requestAnimationFrame(animate);
-    }
-
-    window.addEventListener('resize', init);
+    });
     
-    // Ensure correct sizing on hover as well
-    canvas.parentElement.addEventListener('mouseenter', init);
-
-    init();
-    animate();
+    hero.addEventListener('mouseleave', () => {
+        plate.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+        if (grid) grid.style.transform = `translate(0, 0)`;
+    });
 })();
 </script>

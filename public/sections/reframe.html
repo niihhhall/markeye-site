@@ -1,363 +1,191 @@
-<section class="reframe-section section-padding" id="reframe">
+<section id="work" class="work-section">
     <div class="container">
-        <div class="text-center reveal mb-16">
-            <h2 class="section-title">MORE HEADCOUNT ISN'T THE ANSWER.<br>OWNED INFRASTRUCTURE IS.</h2>
-
+        <div class="section-label reveal">
+            <span class="label-num">VI.</span>
+            <span class="mono">SELECTED WORK — 2026 CATALOG</span>
         </div>
 
-        <div class="shift-comparison reveal">
-            <!-- Background Glows & Animation -->
-            <div class="comparison-glow"></div>
-            <canvas id="reframe-canvas"></canvas>
-            
-            <div class="comparison-header-grid">
-                <div class="header-col">THE OLD WAY</div>
-                <div class="header-col active">
-                    <span class="premium-label">RECOMMENDED</span>
-                    MARKEYE AI EMPLOYEES
+        <div class="work-grid">
+            <div class="work-intro">
+                <h2 class="display-title reveal">
+                    Infrastructure that turns data into <span class="accent-dot">autonomous employees.</span>
+                </h2>
+                <div class="intro-meta mono reveal" data-delay="0.2">
+                    <span class="number-accent">14</span> ACTIVE DEPLOYMENTS // 2026 CATALOG
+                </div>
+                <div class="reveal" data-delay="0.3">
+                    <a href="book.html" class="btn-primary">View all deployments</a>
                 </div>
             </div>
-            
-            <div class="comparison-rows">
-                <div class="comp-row reveal" data-delay="0.1">
-                    <div class="row-left">Full-time SDR (Base + Commissions)</div>
-                    <div class="row-right">AI SDR System</div>
-                </div>
-                <div class="comp-row reveal" data-delay="0.2">
-                    <div class="row-left">8–12 meetings/month</div>
-                    <div class="row-right"><span class="highlight-text">25–35 meetings/month</span></div>
-                </div>
-                <div class="comp-row reveal" data-delay="0.3">
-                    <div class="row-left">90-day ramp before results</div>
-                    <div class="row-right"><span class="highlight-text">12 days to live</span></div>
-                </div>
-                <div class="comp-row reveal" data-delay="0.4">
-                    <div class="row-left">You manage their pipeline</div>
-                    <div class="row-right">You watch a dashboard</div>
-                </div>
-                <div class="comp-row reveal" data-delay="0.5">
-                    <div class="row-left">Recycled playbooks</div>
-                    <div class="row-right">Built on your specific ICP</div>
+
+            <div class="work-cards">
+                <!-- Card 01 -->
+                <div class="work-card reveal" data-delay="0.1">
+                    <div class="card-num-large serif number-accent">01</div>
+                    <div class="card-image">
+                        <img src="assets/1.jpg" alt="SDR Agents" class="work-img">
+                    </div>
+                    <div class="card-info">
+                        <div class="card-meta mono">
+                            <span class="status-indicator">●</span> DEPLOYED SYSTEM
+                        </div>
+                        <h3 class="serif">SDR-AGENTS-<span class="number-accent">V1</span></h3>
+                        <p class="mono">ARCH: MARKEYE-01 // SF-GATEWAY</p>
+                    </div>
                 </div>
 
+                <!-- Card 02 -->
+                <div class="work-card reveal" data-delay="0.3">
+                    <div class="card-num-large serif number-accent">02</div>
+                    <div class="card-image">
+                        <img src="assets/2.jpg" alt="Content Ops" class="work-img">
+                    </div>
+                    <div class="card-info">
+                        <div class="card-meta mono">
+                            <span class="status-indicator active">●</span> ACTIVE INFRA
+                        </div>
+                        <h3 class="serif">CONTENT-OPS-<span class="number-accent">V4</span></h3>
+                        <p class="mono">ARCH: PAPER-SYS // BLR-CORE</p>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <!-- <div class="reframe-footer mt-40 text-center reveal">
-            <p class="large-quote">"They don't sleep. They don't ask for raises. They don't have bad weeks."</p>
-
-        </div> -->
     </div>
 </section>
 
 <style>
-.reframe-section {
+.work-section {
+    background: var(--bg-main);
+    padding: var(--section-padding) 0;
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--space-4xl);
+    align-items: center;
+}
+
+.work-intro {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+.intro-meta {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.2em;
+}
+
+.work-section .display-title {
+    color: var(--text-primary);
+    max-width: 500px;
+}
+
+.work-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+}
+
+.work-card {
+    background: #0D0D0D;
+    color: white;
+    padding: var(--space-xl);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
     position: relative;
-    overflow: hidden;
+    transition: all 0.6s var(--ease-out-expo);
 }
 
-.reframe-desc-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
+.work-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--accent);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2);
 }
 
-.shift-comparison {
-    background: rgba(13, 13, 13, 0.4);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 32px;
-    overflow: hidden;
-    max-width: 1000px;
-    margin: 0 auto;
-    position: relative;
-    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.5);
-}
-
-#reframe-canvas {
+.card-num-large {
+    font-size: 4rem;
+    line-height: 1;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -1.5rem;
+    left: -1rem;
+    z-index: 10;
+    opacity: 0.9;
+}
+
+.card-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    background: #1A1A1A;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.work-img {
     width: 100%;
     height: 100%;
-    z-index: 1;
-    pointer-events: none;
-    opacity: 0.4;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: all 0.6s var(--ease-out-expo);
 }
 
-.comparison-glow {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    background: radial-gradient(circle at 60% 40%, rgba(255, 0, 0, 0.12) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 2;
+.work-card:hover .work-img {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
-.comparison-header-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-    z-index: 1;
-}
-
-.header-col {
-    padding: 3rem 2rem;
-    font-size: 0.8rem;
-    letter-spacing: 0.2em;
-    font-weight: 800;
-    color: var(--text-muted);
-    text-transform: uppercase;
-}
-
-.header-col.active {
-    background: linear-gradient(180deg, rgba(255, 0, 0, 0.12) 0%, transparent 100%);
-    color: white;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-    z-index: 2;
-}
-
-.premium-label {
-    display: block;
+.card-meta {
     font-size: 0.6rem;
-    color: var(--accent);
+    color: var(--text-muted);
     margin-bottom: 0.5rem;
-    letter-spacing: 0.1em;
-}
-
-.comparison-rows {
-    position: relative;
-    z-index: 1;
-}
-
-.comp-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.comp-row:last-child { border-bottom: none; }
-
-.comp-row:hover {
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(255, 255, 255, 0.15);
-}
-
-.row-left, .row-right {
-    padding: 2.5rem 2rem;
-    font-size: 1.05rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    gap: 0.5rem;
 }
 
-.row-left {
+.status-indicator {
+    font-size: 8px;
+    color: #444;
+}
+
+.status-indicator.active {
+    color: var(--accent);
+}
+
+.work-card h3 {
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.25rem;
+}
+
+.work-card p {
+    font-size: 0.55rem;
     color: var(--text-muted);
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.row-right {
-    color: white;
-    font-weight: 500;
-}
-
-.highlight-text {
-    color: white;
-    font-weight: 700;
-    position: relative;
-}
-
-.comp-row:hover .highlight-text {
-    color: var(--accent);
-}
-
-@media (max-width: 768px) {
-    .comparison-header-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .header-col { padding: 2rem 1.5rem; }
-    
-    .header-col.active { border-left: none; border-top: 1px solid rgba(255, 255, 255, 0.1); }
-
-    .comp-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .row-left {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        padding: 1.25rem 2rem;
-        font-size: 0.9rem;
-    }
-    
-    .row-right {
-        padding: 1.25rem 2rem;
-    }
-
-    .comparison-glow { display: none; }
-}
-
-.reframe-footer {
-    text-align: center;
-    margin-top: 10rem;
-}
-
-.large-quote {
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 1.4;
-    color: white;
-    margin-bottom: 1rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.accent-text {
-    color: var(--accent);
-    font-weight: 600;
     letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-size: 0.9rem;
 }
 
-/* Specific reveal overrides for rows */
-.comp-row.reveal {
-    opacity: 0;
-    transform: translateX(-10px);
+@media (max-width: 1200px) {
+    .work-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+    .work-section .display-title {
+        max-width: 100%;
+    }
 }
 
-.comp-row.reveal.visible {
-    opacity: 1;
-    transform: translateX(0);
+@media (max-width: 640px) {
+    .work-cards {
+        grid-template-columns: 1fr;
+    }
+    .card-num-large {
+        font-size: 3rem;
+        top: -1rem;
+        left: -0.5rem;
+    }
 }
 </style>
-
-<script>
-(function() {
-    const canvas = document.getElementById('reframe-canvas');
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let animationId;
-    let mouse = { x: null, y: null };
-
-    const settings = {
-        count: window.innerWidth < 768 ? 20 : 40,
-        distance: 120,
-        particleSpeed: 0.4,
-        particleRadius: 1.2,
-        connectionWidth: 0.5,
-        mouseRadius: 150
-    };
-
-    class Particle {
-        constructor() {
-            this.init();
-        }
-
-        init() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.vx = (Math.random() - 0.5) * settings.particleSpeed;
-            this.vy = (Math.random() - 0.5) * settings.particleSpeed;
-            this.radius = Math.random() * settings.particleRadius + 0.5;
-            this.alpha = Math.random() * 0.4 + 0.1;
-        }
-
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-
-            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-
-            if (mouse.x !== null) {
-                const dx = mouse.x - this.x;
-                const dy = mouse.y - this.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < settings.mouseRadius) {
-                    const force = (settings.mouseRadius - dist) / settings.mouseRadius;
-                    this.vx -= dx * force * 0.005;
-                    this.vy -= dy * force * 0.005;
-                }
-            }
-        }
-
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
-            ctx.fill();
-        }
-    }
-
-    function init() {
-        resize();
-        particles = [];
-        for (let i = 0; i < settings.count; i++) {
-            particles.push(new Particle());
-        }
-    }
-
-    function resize() {
-        if (!canvas.parentElement) return;
-        const rect = canvas.parentElement.getBoundingClientRect();
-        canvas.width = rect.width;
-        canvas.height = rect.height;
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        for (let i = 0; i < particles.length; i++) {
-            const p1 = particles[i];
-            p1.update();
-            p1.draw();
-
-            for (let j = i + 1; j < particles.length; j++) {
-                const p2 = particles[j];
-                const dx = p1.x - p2.x;
-                const dy = p1.y - p2.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (dist < settings.distance) {
-                    ctx.beginPath();
-                    ctx.moveTo(p1.x, p1.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    const alpha = (1 - dist / settings.distance) * 0.15;
-                    ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
-                    ctx.lineWidth = settings.connectionWidth;
-                    ctx.stroke();
-                }
-            }
-        }
-        animationId = requestAnimationFrame(animate);
-    }
-
-    window.addEventListener('resize', init);
-    
-    canvas.parentElement.addEventListener('mousemove', (e) => {
-        const rect = canvas.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
-    });
-
-    canvas.parentElement.addEventListener('mouseleave', () => {
-        mouse.x = null;
-        mouse.y = null;
-    });
-
-    init();
-    animate();
-})();
-</script>

@@ -18,39 +18,32 @@
     <meta name="twitter:title" content="Markeye — AI Employee Infrastructure">
     <meta name="twitter:description" content="Done-for-you AI employee team. Fully trained on your business. Predictable, scalable outbound systems.">
     <link rel="canonical" href="https://markeye.space">
-    <link rel="icon" type="image/jpeg" href="/favicon.jpg">
-    <link rel="shortcut icon" href="/favicon.jpg">
-    <link rel="apple-touch-icon" href="/favicon.jpg">
+    <link rel="icon" type="image/jpeg" href="assets/favicon.jpg">
+    <link rel="shortcut icon" href="assets/favicon.jpg">
+    <link rel="apple-touch-icon" href="assets/favicon.jpg">
     
     <!-- Design System -->
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body class="dark-theme">
+<body>
+    <!-- Global Noise Texture -->
+    <div class="noise-overlay"></div>
     
     <!-- Sections Placeholder -->
     <div id="navbar"></div>
     <main>
         <div id="hero"></div>
-        <div id="reframe"></div>
+        <div id="stats"></div>
+        <div id="about"></div>
         <div id="services"></div>
         <div id="how-it-works"></div>
-
-        <div id="comparison"></div>
-        <div id="who-is-it-for"></div>
-        <div id="about"></div>
-        <div id="faqs"></div>
+        <div id="reframe"></div>
         <div id="final-cta"></div>
     </main>
     <div id="footer"></div>
 
     <!-- Modular Loader Script -->
-    <script type="module">
-        import { injectSpeedInsights } from '@vercel/speed-insights';
-        import { inject as injectAnalytics } from '@vercel/analytics';
-        
-        injectSpeedInsights();
-        injectAnalytics();
-
+    <script>
         async function loadSection(id, file) {
             try {
                 const response = await fetch(`sections/${file}`);
@@ -69,13 +62,10 @@
                     style.remove();
                 });
                 
-                // 3. Handle Scripts (Execute after HTML is in DOM)
+                // Handle Scripts
                 const scripts = temp.querySelectorAll('script');
-                
-                // Insert HTML content
                 container.innerHTML = temp.innerHTML;
                 
-                // Execute scripts by appending to body
                 scripts.forEach(script => {
                     const newScript = document.createElement('script');
                     newScript.textContent = script.textContent;
@@ -88,18 +78,14 @@
         }
 
         async function initApp() {
-            // Load sections in sequence to maintain visual order (Funnel-optimized Order)
             const sections = [
                 { id: 'navbar', file: 'navbar.html' },
                 { id: 'hero', file: 'hero.html' },
-                { id: 'reframe', file: 'reframe.html' },
+                { id: 'stats', file: 'stats.html' },
+                { id: 'about', file: 'about.html' },
                 { id: 'services', file: 'services.html' },
                 { id: 'how-it-works', file: 'how-it-works.html' },
-
-                { id: 'comparison', file: 'comparison.html' },
-                { id: 'who-is-it-for', file: 'who-is-it-for.html' },
-                { id: 'about', file: 'about.html' },
-                { id: 'faqs', file: 'faqs.html' },
+                { id: 'reframe', file: 'reframe.html' },
                 { id: 'final-cta', file: 'final-cta.html' },
                 { id: 'footer', file: 'footer.html' }
             ];
@@ -108,7 +94,6 @@
                 await loadSection(section.id, section.file);
             }
 
-            // Initialize Animations after content is loaded
             initAnimations();
         }
 
@@ -122,8 +107,6 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        
-                        // Handle staggered delays if defined in data-delay
                         const delay = entry.target.getAttribute('data-delay');
                         if (delay) {
                             entry.target.style.transitionDelay = `${delay}s`;
@@ -135,8 +118,9 @@
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         }
 
-        // Start loading
         document.addEventListener('DOMContentLoaded', initApp);
     </script>
 </body>
+</html>
+
 </html>
