@@ -144,7 +144,7 @@
 
 .capabilities-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Intrinsic Auto-Layout */
+    grid-template-columns: repeat(2, 1fr);
     gap: 0;
     border: 1px solid var(--border-color);
 }
@@ -270,12 +270,18 @@
 }
 
 @media (max-width: 768px) {
+    .capabilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
     .capability-card {
         padding: var(--space-xl);
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+    .capabilities-grid {
+        grid-template-columns: 1fr;
+    }
     .capability-card {
         padding: var(--space-lg);
     }

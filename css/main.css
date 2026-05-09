@@ -19,30 +19,31 @@
     --radius-sm: 2px;
     --radius-md: 4px;
     
-    /* Fluid Spacing Scale (8pt base) - Scales from 320px to 1440px */
-    --space-2xs: clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem);
-    --space-xs:  clamp(0.5rem, 0.4rem + 0.5vw, 1rem);
-    --space-sm:  clamp(0.75rem, 0.6rem + 0.75vw, 1.5rem);
-    --space-md:  clamp(1rem, 0.8rem + 1vw, 2rem);
-    --space-lg:  clamp(1.5rem, 1.2rem + 1.5vw, 3rem);
-    --space-xl:  clamp(2rem, 1.6rem + 2vw, 4rem);
-    --space-2xl: clamp(3rem, 2.4rem + 3vw, 6rem);
-    --space-3xl: clamp(4rem, 3.2rem + 4vw, 8rem);
-    --space-4xl: clamp(6rem, 4.8rem + 6vw, 12rem);
-
+    /* Fluid Spacing System */
+    --space-unit: 1rem;
+    --space-3xs: calc(var(--space-unit) * 0.25);
+    --space-2xs: calc(var(--space-unit) * 0.5);
+    --space-xs: calc(var(--space-unit) * 0.75);
+    --space-sm: var(--space-unit);
+    --space-md: calc(var(--space-unit) * 1.5);
+    --space-lg: calc(var(--space-unit) * 2);
+    --space-xl: calc(var(--space-unit) * 3);
+    --space-2xl: calc(var(--space-unit) * 4);
+    --space-3xl: calc(var(--space-unit) * 6);
+    --space-4xl: calc(var(--space-unit) * 8);
+    
     /* Fluid Typography Scale (1.25 Ratio) */
-    --font-size-base: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
-    --font-size-sm:   clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-    --font-size-lg:   clamp(1.125rem, 1rem + 0.5vw, 1.35rem);
-    --font-size-xl:   clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
-    --font-size-2xl:  clamp(2rem, 1.5rem + 2vw, 3.5rem);
-    --font-size-display: clamp(3rem, 2rem + 6vw, 7.5rem);
-    --font-size-title:   clamp(2rem, 1.5rem + 4vw, 5rem);
+    --font-size-base: 1rem;
+    --font-size-sm: clamp(0.75rem, 0.7rem + 0.1vw, 0.875rem);
+    --font-size-lg: clamp(1.125rem, 1.1rem + 0.1vw, 1.25rem);
+    --font-size-xl: clamp(1.5rem, 1.4rem + 0.5vw, 2rem);
+    --font-size-2xl: clamp(2rem, 1.8rem + 1vw, 3rem);
+    --font-size-display: clamp(3rem, 6vw, 6rem);
     
     /* Responsive Values */
-    --container-padding: clamp(1rem, 5vw, 5rem);
-    --section-padding: clamp(3rem, 10vw, 10rem);
-    --component-gap: clamp(1.5rem, 4vw, 4rem);
+    --container-padding: clamp(1.5rem, 4vw, 4rem);
+    --section-padding: clamp(4rem, 8vw, 8rem);
+    --component-gap: clamp(1.5rem, 3vw, 3rem);
     
     /* Animation Tokens */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
