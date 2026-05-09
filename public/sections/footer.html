@@ -205,15 +205,18 @@
 .footer-meta {
     display: flex;
     justify-content: space-between;
-    padding: var(--space-xl) 0;
+    align-items: center; /* Fix vertical alignment */
+    padding: var(--space-lg) 0; /* Standardized padding */
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
-    margin-bottom: var(--space-4xl);
+    margin-bottom: var(--space-3xl);
 }
 
 .footer-meta div {
-    font-size: 0.6rem;
+    font-size: 0.65rem; /* Slightly larger for readability */
     color: var(--text-muted);
+    line-height: 1;
+    letter-spacing: 0.1em;
 }
 
 .grand-brand {
