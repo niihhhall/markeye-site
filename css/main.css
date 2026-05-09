@@ -66,6 +66,13 @@ body {
     color: var(--text-primary);
     font-family: var(--font-sans);
     overflow-x: hidden;
+    padding-top: 120px; /* Offset for fixed header */
+}
+
+@media (max-width: 1024px) {
+    body {
+        padding-top: 104px; /* Offset for smaller mobile header */
+    }
 }
 
 /* Vertical Columnar Lines - Landscape Alignment */

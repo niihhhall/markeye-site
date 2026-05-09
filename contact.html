@@ -35,26 +35,43 @@
         }
 
         .terminal-header-block {
-            padding: var(--space-2xl) 0;
+            padding: 8rem 0;
             border-bottom: 1px solid var(--border-color);
             text-align: center;
             position: relative;
+            background: rgba(217, 4, 41, 0.01);
+        }
+
+        .header-meta {
+            font-size: 0.65rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            letter-spacing: 0.25em;
+            display: block;
         }
 
         .terminal-header-block h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(3.5rem, 10vw, 7.5rem);
             line-height: 0.85;
-            text-transform: uppercase;
-            margin: var(--space-md) 0;
+            letter-spacing: -0.04em;
+            margin-bottom: 2.5rem;
+            font-weight: 500;
         }
 
-        .terminal-header-block .protocol-label {
-            display: inline-block;
-            padding: 4px 12px;
-            border: 1px solid var(--accent);
-            color: var(--accent);
+        .header-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
             font-size: 0.6rem;
-            border-radius: 99px;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+        }
+
+        .header-stats span::before {
+            content: '●';
+            color: var(--accent);
+            margin-right: 0.5rem;
+            font-size: 0.5rem;
         }
 
         /* --- Scheduling Module --- */
@@ -172,9 +189,13 @@
 
                 <!-- Header Block -->
                 <header class="terminal-header-block reveal">
-                    <div class="protocol-label mono">INITIATE_SCHEDULING_PROTOCOL</div>
-                    <h1 class="serif">Secure your <span class="accent-dot">Discovery Session.</span></h1>
-                    <div class="sub-label mono" style="color: var(--text-muted);">LOC // NEW_DELHI // IND · TIME // UTC+5.5</div>
+                    <span class="header-meta mono">[ INITIATE_COMMUNICATION_PROTOCOL // 2026_EST ]</span>
+                    <h1 class="serif">Let's build <em class="serif-italic" style="color: var(--accent);">the infrastructure</em> of your next scale<span class="accent-dot">.</span></h1>
+                    <div class="header-stats mono">
+                        <span>SYSTEM: ONLINE</span>
+                        <span>SLOTS: 2_REMAINING</span>
+                        <span>LOC: NEW_DELHI</span>
+                    </div>
                 </header>
 
                 <!-- Scheduling Section -->
