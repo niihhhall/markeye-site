@@ -296,6 +296,7 @@
         </section>
     </main>
 
+    <div id="final-cta"></div>
     <div id="footer"></div>
 
     <script>
@@ -341,6 +342,7 @@
         async function init() {
             await Promise.all([
                 loadSection('navbar', 'navbar.html'),
+                loadSection('final-cta', 'final-cta.html'),
                 loadSection('footer', 'footer.html')
             ]);
         }
