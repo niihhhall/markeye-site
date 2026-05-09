@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="css/main.css">
     <style>
         :root {
-            --contact-grid-gap: var(--space-3xl);
+            --contact-max-width: 1000px;
+            --terminal-border: 1px solid var(--border-color);
         }
 
         .contact-page {
@@ -18,193 +19,140 @@
         }
 
         .contact-hero {
-            padding-top: calc(var(--section-padding) * 0.8);
-            padding-bottom: var(--space-3xl);
+            padding: var(--space-4xl) 0;
             border-bottom: 1px solid var(--border-color);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: var(--contact-grid-gap);
-            margin-top: var(--space-4xl);
-        }
-
-        /* --- Form Section --- */
-        .contact-terminal {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-2xl);
-        }
-
-        .terminal-header {
-            border-left: 4px solid var(--accent);
-            padding-left: var(--space-lg);
-            margin-bottom: var(--space-xl);
-        }
-
-        .terminal-header h1 {
-            font-size: var(--font-size-4xl);
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-            line-height: 0.9;
-        }
-
-        .protocol-label {
-            display: block;
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.2em;
-        }
-
-        /* --- Custom Form --- */
-        .markeye-form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-xl);
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .form-group.full-width {
-            grid-column: span 2;
-        }
-
-        .form-label {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            letter-spacing: 0.1em;
-        }
-
-        .form-input {
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid var(--border-color);
-            padding: var(--space-md) 0;
-            color: var(--text-primary);
-            font-family: var(--font-sans);
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            outline: none;
-        }
-
-        .form-input:focus {
-            border-bottom-color: var(--accent);
-        }
-
-        .form-input::placeholder {
-            color: rgba(255,255,255,0.1);
-        }
-
-        .form-select {
-            appearance: none;
-            cursor: pointer;
-        }
-
-        .form-submit-row {
-            grid-column: span 2;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: var(--space-xl);
-            padding-top: var(--space-xl);
-            border-top: 1px solid var(--border-color);
-        }
-
-        .submit-status {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            color: var(--text-muted);
-        }
-
-        /* --- Visual Section --- */
-        .contact-visuals {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-xl);
-        }
-
-        .visual-frame {
-            border: 1px dashed var(--border-color);
-            aspect-ratio: 4/5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
             position: relative;
-            background: rgba(255,255,255,0.02);
-            overflow: hidden;
         }
 
-        .visual-label {
+        /* --- Frame Layout --- */
+        .terminal-container {
+            max-width: var(--contact-max-width);
+            margin: 0 auto;
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            padding: 0 var(--space-xl);
+            position: relative;
+        }
+
+        .terminal-header-block {
+            padding: var(--space-2xl) 0;
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+            position: relative;
+        }
+
+        .terminal-header-block h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 0.85;
+            text-transform: uppercase;
+            margin: var(--space-md) 0;
+        }
+
+        .terminal-header-block .protocol-label {
+            display: inline-block;
+            padding: 4px 12px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: 0.6rem;
+            border-radius: 99px;
+        }
+
+        /* --- Scheduling Module --- */
+        .scheduling-module {
+            padding: var(--space-3xl) 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cal-wrapper {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            position: relative;
+            min-height: 700px;
+            box-shadow: 20px 20px 0px rgba(217, 4, 41, 0.03);
+            transition: all 0.6s var(--ease-out-expo);
+        }
+
+        .cal-wrapper:hover {
+            box-shadow: 30px 30px 0px rgba(217, 4, 41, 0.05);
+            transform: translate(-5px, -5px);
+        }
+
+        .cal-wrapper::before {
+            content: 'TERMINAL_01 // ACTIVE_SYNC';
+            position: absolute;
+            top: -12px;
+            left: var(--space-md);
+            background: var(--bg-main);
+            padding: 0 10px;
             font-family: var(--font-mono);
             font-size: 0.55rem;
             color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
-            position: absolute;
-            bottom: var(--space-md);
-            left: var(--space-md);
+            z-index: 10;
         }
 
-        .visual-placeholder-text {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            color: rgba(255,255,255,0.05);
-            transform: rotate(-45deg);
-            white-space: nowrap;
-        }
-
-        .meta-cards {
+        /* --- Meta Data Grid --- */
+        .contact-meta-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--space-lg);
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .meta-card {
-            border: 1px solid var(--border-color);
-            padding: var(--space-lg);
+        .meta-module {
+            padding: var(--space-2xl);
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: var(--space-md);
         }
 
-        .meta-card h3 {
+        .meta-module:first-child {
+            border-right: 1px solid var(--border-color);
+        }
+
+        .meta-module h3 {
             font-family: var(--font-mono);
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             color: var(--accent);
             text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
-        .meta-card p {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
+        .meta-module p {
+            font-size: 1.1rem;
             line-height: 1.4;
+            color: var(--text-primary);
         }
 
-        @media (max-width: 1024px) {
-            .contact-grid {
+        .meta-module .sub-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+        }
+
+        /* --- Decorative Details --- */
+        .corner-accent {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border: 1px solid var(--accent);
+            z-index: 5;
+        }
+
+        .corner-tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+        .corner-tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+        .corner-bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+        .corner-br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+        @media (max-width: 768px) {
+            .contact-meta-grid {
                 grid-template-columns: 1fr;
             }
-            .markeye-form {
-                grid-template-columns: 1fr;
+            .meta-module:first-child {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
             }
-            .form-group.full-width {
-                grid-column: span 1;
-            }
-            .form-submit-row {
-                grid-column: span 1;
-                flex-direction: column;
-                gap: var(--space-lg);
-                align-items: flex-start;
+            .terminal-container {
+                border-left: none;
+                border-right: none;
             }
         }
     </style>
@@ -215,81 +163,52 @@
 
     <main class="contact-page">
         <section class="contact-hero">
-            <div class="container">
-                <div class="section-label">
-                    <span class="label-num">VIII.</span>
-                    <span class="mono">COMMUNICATION_TERMINAL // V1.0</span>
+            <div class="terminal-container">
+                <!-- Corner Accents -->
+                <div class="corner-accent corner-tl"></div>
+                <div class="corner-accent corner-tr"></div>
+                <div class="corner-accent corner-bl"></div>
+                <div class="corner-accent corner-br"></div>
+
+                <!-- Header Block -->
+                <header class="terminal-header-block reveal">
+                    <div class="protocol-label mono">INITIATE_SCHEDULING_PROTOCOL</div>
+                    <h1 class="serif">Secure your <span class="accent-dot">Discovery Session.</span></h1>
+                    <div class="sub-label mono" style="color: var(--text-muted);">LOC // NEW_DELHI // IND · TIME // UTC+5.5</div>
+                </header>
+
+                <!-- Scheduling Section -->
+                <div class="scheduling-module reveal" data-delay="0.2">
+                    <div class="cal-wrapper">
+                        <!-- Cal inline embed code begins -->
+                        <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-1on1"></div>
+                        <script type="text/javascript">
+                          (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+                        Cal("init", "1on1", {origin:"https://app.cal.com"});
+
+                          Cal.ns["1on1"]("inline", {
+                            elementOrSelector:"#my-cal-inline-1on1",
+                            config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+                            calLink: "niihhhall/1on1",
+                          });
+
+                          Cal.ns["1on1"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#ff3b30"},"dark":{"cal-brand":"#ff3b30"}},"hideEventTypeDetails":false,"layout":"month_view"});
+                        </script>
+                        <!-- Cal inline embed code ends -->
+                    </div>
                 </div>
 
-                <div class="contact-grid">
-                    <!-- Left: The Terminal -->
-                    <div class="contact-terminal">
-                        <div class="terminal-header">
-                            <span class="protocol-label">INITIATE_ONBOARDING_PROTOCOL</span>
-                            <h1>Let's build your <span class="accent-dot">AI workforce.</span></h1>
-                        </div>
-
-                        <form class="markeye-form">
-                            <div class="form-group">
-                                <label class="form-label">IDENTITY_NAME</label>
-                                <input type="text" class="form-input" placeholder="What should we call you?">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">SIGNAL_EMAIL</label>
-                                <input type="email" class="form-input" placeholder="Where can we reach you?">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">OBJECTIVE_TYPE</label>
-                                <select class="form-input form-select">
-                                    <option value="" disabled selected>Select Infrastructure</option>
-                                    <option>AI SDR Systems</option>
-                                    <option>Autonomous Ops</option>
-                                    <option>Full Agency Stack</option>
-                                    <option>Custom Protocol</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">ALLOCATED_RESOURCES</label>
-                                <select class="form-input form-select">
-                                    <option value="" disabled selected>Select Range</option>
-                                    <option>$2k - $5k / mo</option>
-                                    <option>$5k - $10k / mo</option>
-                                    <option>$10k+ / mo</option>
-                                </select>
-                            </div>
-                            <div class="form-group full-width">
-                                <label class="form-label">MISSION_PARAMETERS</label>
-                                <textarea class="form-input" rows="4" placeholder="Briefly explain your current bottleneck..."></textarea>
-                            </div>
-                            <div class="form-submit-row">
-                                <div class="submit-status">
-                                    READY_TO_TRANSMIT // SECURE_ENCRYPTION_ACTIVE
-                                </div>
-                                <button type="submit" class="btn-primary">Initialize Protocol ★</button>
-                            </div>
-                        </form>
+                <!-- Meta Modules -->
+                <div class="contact-meta-grid reveal" data-delay="0.4">
+                    <div class="meta-module">
+                        <span class="sub-label">01 // ELECTRONIC_MAIL</span>
+                        <h3>Direct_Link</h3>
+                        <p class="serif" style="font-size: 1.5rem;">hello@markeye.ai</p>
                     </div>
-
-                    <!-- Right: Visual Aesthetics -->
-                    <div class="contact-visuals">
-                        <div class="visual-frame">
-                            <span class="visual-label">ASSET_01 // SYSTEM_OVERVIEW</span>
-                            <div class="visual-placeholder-text">
-                                MARKEYE_VISUAL_TERMINAL_RESERVED
-                            </div>
-                            <!-- Image will go here -->
-                        </div>
-
-                        <div class="meta-cards">
-                            <div class="meta-card">
-                                <h3>Direct_Link</h3>
-                                <p>hello@markeye.ai<br>+91 98XX XXX XXX</p>
-                            </div>
-                            <div class="meta-card">
-                                <h3>Global_HQ</h3>
-                                <p>New Delhi, India<br>Open / Earth</p>
-                            </div>
-                        </div>
+                    <div class="meta-module">
+                        <span class="sub-label">02 // GEOGRAPHIC_LOC</span>
+                        <h3>Global_HQ</h3>
+                        <p class="serif" style="font-size: 1.5rem;">New Delhi, India / Earth</p>
                     </div>
                 </div>
             </div>
@@ -343,6 +262,19 @@
                 loadSection('navbar', 'navbar.html'),
                 loadSection('footer', 'footer.html')
             ]);
+            initAnimations();
+        }
+
+        function initAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         }
 
         document.addEventListener('DOMContentLoaded', init);
