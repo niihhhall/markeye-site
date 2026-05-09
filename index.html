@@ -24,8 +24,20 @@
     
     <!-- Design System -->
     <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Performance Optimization: Preconnect & Preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="css/main.css" as="style">
 </head>
 <body>
+    <!-- Initial Loading State -->
+    <div id="app-loader" style="position: fixed; inset: 0; background: var(--bg-main, #000); z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s ease;">
+        <div style="font-family: var(--font-mono, monospace); font-size: 0.8rem; color: var(--accent, #ff3b30); letter-spacing: 0.2em; text-transform: uppercase;">
+            Initializing Infrastructure...
+        </div>
+    </div>
+
     <!-- Global Noise Texture -->
     <div class="noise-overlay"></div>
     
@@ -50,15 +62,21 @@
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 const content = await response.text();
                 const container = document.getElementById(id);
+                if (!container) return;
+
                 const temp = document.createElement('div');
                 temp.innerHTML = content;
                 
-                // Handle Styles
+                // Handle Styles (prevent duplicates)
                 const styles = temp.querySelectorAll('style');
                 styles.forEach(style => {
-                    const newStyle = document.createElement('style');
-                    newStyle.textContent = style.textContent;
-                    document.head.appendChild(newStyle);
+                    const styleId = `style-${file.replace('.html', '')}`;
+                    if (!document.getElementById(styleId)) {
+                        const newStyle = document.createElement('style');
+                        newStyle.id = styleId;
+                        newStyle.textContent = style.textContent;
+                        document.head.appendChild(newStyle);
+                    }
                     style.remove();
                 });
                 
@@ -90,11 +108,21 @@
                 { id: 'footer', file: 'footer.html' }
             ];
 
-            for (const section of sections) {
-                await loadSection(section.id, section.file);
-            }
+            // PARALLEL LOADING: Fetch all sections simultaneously
+            try {
+                await Promise.all(sections.map(section => loadSection(section.id, section.file)));
+                
+                // Remove loader
+                const loader = document.getElementById('app-loader');
+                if (loader) {
+                    loader.style.opacity = '0';
+                    setTimeout(() => loader.remove(), 500);
+                }
 
-            initAnimations();
+                initAnimations();
+            } catch (error) {
+                console.error("Infrastructure initialization failed:", error);
+            }
         }
 
         function initAnimations() {
@@ -120,6 +148,7 @@
 
         document.addEventListener('DOMContentLoaded', initApp);
     </script>
+
 </body>
 </html>
 
