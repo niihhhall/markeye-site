@@ -160,6 +160,7 @@
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    height: 100%; /* Ensure equal height in grid rows */
 }
 
 .capability-card:hover {
@@ -180,6 +181,10 @@
     font-size: 0.65rem;
     color: var(--text-muted);
     letter-spacing: 0.05em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px; /* Prevent long labels from pushing layout */
 }
 
 .card-num {

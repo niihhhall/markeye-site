@@ -130,7 +130,7 @@
                 setTimeout(() => {
                     document.body.classList.remove('page-locked');
                     window.scrollTo(0, 0); // Ensure we start at top
-                }, 2200);
+                }, 1500);
 
             } catch (error) {
                 console.error("Infrastructure initialization failed:", error);
@@ -139,8 +139,8 @@
 
         function initAnimations() {
             const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
+                threshold: 0.05, // Trigger earlier
+                rootMargin: '0px 0px -10% 0px' // Use percentage for better responsiveness
             };
 
             const observer = new IntersectionObserver((entries) => {

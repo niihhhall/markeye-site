@@ -66,7 +66,7 @@
 }
 
 .header-note {
-    max-width: 200px;
+    max-width: 250px;
     font-size: 0.65rem;
     color: var(--accent);
     line-height: 1.4;
@@ -124,6 +124,15 @@
 }
 
 @media (max-width: 1024px) {
+    .method-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-md);
+    }
+    .header-note {
+        text-align: left;
+        max-width: 100%;
+    }
     .method-steps {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-2xl);
@@ -131,8 +140,22 @@
 }
 
 @media (max-width: 640px) {
+    .method-header {
+        align-items: center;
+        text-align: center;
+    }
+    .header-note {
+        text-align: center;
+    }
     .method-steps {
         grid-template-columns: 1fr;
+    }
+    .method-step {
+        align-items: center;
+        text-align: center;
+    }
+    .step-num {
+        font-size: 4rem;
     }
 }
 </style>
