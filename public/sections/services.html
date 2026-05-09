@@ -110,8 +110,8 @@
 <style>
 .services-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr; /* Slightly more space for the cards */
-    gap: var(--space-2xl); /* Reduced from 4xl */
+    grid-template-columns: 1fr 1.5fr; /* Optimized ratio for desktop readability */
+    gap: var(--component-gap);
 }
 
 .services-intro {
@@ -251,15 +251,34 @@
     transform: translate(2px, -2px);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .services-grid {
         grid-template-columns: 1fr;
+        gap: var(--space-3xl);
+    }
+    .intro-text {
+        text-align: center;
+    }
+    .intro-text p {
+        margin: 0 auto;
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+    .capabilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .capability-card {
+        padding: var(--space-xl);
+    }
+}
+
+@media (max-width: 600px) {
     .capabilities-grid {
         grid-template-columns: 1fr;
+    }
+    .capability-card {
+        padding: var(--space-lg);
     }
 }
 </style>

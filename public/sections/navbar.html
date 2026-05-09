@@ -37,7 +37,7 @@
 
             <div class="nav-actions">
                 <a href="contact.html" class="btn-nav-ghost">CONTACT US</a>
-                <a href="contact.html" class="btn-nav-solid">APPLY ★</a>
+                <!-- <a href="contact.html" class="btn-nav-solid">APPLY ★</a> -->
                 
                 <button class="mobile-toggle" aria-label="Toggle Menu">
                     <span></span>
@@ -59,16 +59,13 @@
 }
 
 .nav-container {
-    max-width: var(--container-max-width);
+    max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 var(--container-padding);
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    /* Alignment lines for the framed layout */
-    border-left: 1px solid var(--border-color);
-    border-right: 1px solid var(--border-color);
 }
 
 /* --- Top Utility Bar --- */
@@ -274,7 +271,7 @@
 }
 
 @media (max-width: 1024px) {
-    .nav-container { padding: 0 1.5rem; }
+    .nav-container { padding: 0 var(--container-padding); }
     .nav-menu, .utility-center { display: none; }
     .mobile-toggle { display: flex; }
     .nav-main { height: 72px; }
@@ -285,22 +282,27 @@
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 104px; /* nav-utility (32) + nav-main (72) */
+        top: 104px;
         left: 0;
         width: 100%;
+        height: calc(100vh - 104px);
         background: var(--bg-main);
-        padding: 2rem 1.5rem;
+        padding: var(--space-2xl) var(--container-padding);
         border-bottom: 1px solid var(--border-color);
-        gap: 1.5rem;
+        gap: var(--space-xl);
         z-index: 100;
+        overflow-y: auto;
     }
 
     .site-header.is-open .nav-menu a {
-        font-size: 1.5rem;
+        font-family: var(--font-serif);
+        font-size: var(--font-size-2xl);
         width: 100%;
         display: block;
+        color: var(--text-primary);
     }
 }
+
 </style>
 
 <script>

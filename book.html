@@ -184,11 +184,41 @@
             }
         }
 
+        function initAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        const delay = entry.target.getAttribute('data-delay');
+                        if (delay) {
+                            entry.target.style.transitionDelay = `${delay}s`;
+                        }
+
+                        const animateType = entry.target.getAttribute('data-animate');
+                        if (animateType) {
+                            setTimeout(() => {
+                                entry.target.classList.add(`animate-${animateType}`);
+                            }, 1000);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal, [data-animate]').forEach(el => observer.observe(el));
+        }
+
         async function init() {
             await Promise.all([
                 loadSection('navbar', 'navbar.html'),
                 loadSection('footer', 'footer.html')
             ]);
+            initAnimations();
         }
 
         document.addEventListener('DOMContentLoaded', init);

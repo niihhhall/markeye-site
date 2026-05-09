@@ -17,7 +17,7 @@
                 </p>
                 
                 <div class="hero-actions reveal" data-delay="0.4">
-                    <a href="contact.html" class="btn-primary">
+                    <a href="contact.html" class="btn-primary" data-animate="pulse">
                         BOOK A CALL
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </a>
@@ -58,12 +58,12 @@
 
 <style>
 .hero-section {
-    min-height: 100vh;
+    min-height: 90vh; /* Reduced from 100vh to ensure next section is visible */
     display: flex;
     align-items: center;
     position: relative;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    padding-top: var(--space-2xl) !important;
+    padding-bottom: var(--space-3xl) !important;
     overflow: hidden;
     background: var(--bg-main);
 }
@@ -277,17 +277,29 @@
 }
 
 @media (max-width: 992px) {
+    .hero-section {
+        min-height: auto;
+        padding-top: var(--space-4xl) !important;
+        padding-bottom: var(--space-4xl) !important;
+    }
     .hero-split {
         grid-template-columns: 1fr;
-        gap: 5rem;
+        gap: var(--space-3xl);
     }
     .hero-content {
         text-align: center;
     }
-    .display-title, .hero-description {
+    .display-title {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        margin-bottom: var(--space-lg);
+        text-align: center;
+    }
+    .hero-description {
         text-align: center;
         margin-left: auto;
         margin-right: auto;
+        font-size: 1rem;
+        margin-bottom: var(--space-xl);
     }
     .hero-plate-wrapper {
         justify-content: center;
@@ -296,7 +308,17 @@
         display: flex;
         justify-content: center;
     }
+    .hero-plate {
+        padding: 1.5rem;
+    }
 }
+
+@media (max-width: 480px) {
+    .display-title {
+        font-size: 2.25rem;
+    }
+}
+
 </style>
 
 <script>

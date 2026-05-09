@@ -96,6 +96,9 @@
         }
 
         async function initApp() {
+            // Lock page to hero only initially
+            document.body.classList.add('page-locked');
+
             const sections = [
                 { id: 'navbar', file: 'navbar.html' },
                 { id: 'hero', file: 'hero.html' },
@@ -120,6 +123,15 @@
                 }
 
                 initAnimations();
+
+                // Unlock page and reveal other sections after hero animation completes
+                // Hero elements have delays up to 0.5s + 1s transition = 1.5s total reveal
+                // We add a bit of buffer for a premium feel
+                setTimeout(() => {
+                    document.body.classList.remove('page-locked');
+                    window.scrollTo(0, 0); // Ensure we start at top
+                }, 2200);
+
             } catch (error) {
                 console.error("Infrastructure initialization failed:", error);
             }
@@ -135,15 +147,27 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
+                        
+                        // Handle standard reveal delay
                         const delay = entry.target.getAttribute('data-delay');
                         if (delay) {
                             entry.target.style.transitionDelay = `${delay}s`;
+                        }
+
+                        // Handle scroll-triggered animations (e.g., button pulse)
+                        const animateType = entry.target.getAttribute('data-animate');
+                        if (animateType) {
+                            // Add a small delay for the pulse to start after the reveal
+                            setTimeout(() => {
+                                entry.target.classList.add(`animate-${animateType}`);
+                            }, 1000);
                         }
                     }
                 });
             }, observerOptions);
 
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            // Observe all reveal elements and specific animation triggers
+            document.querySelectorAll('.reveal, [data-animate]').forEach(el => observer.observe(el));
         }
 
         document.addEventListener('DOMContentLoaded', initApp);

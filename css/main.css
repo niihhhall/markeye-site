@@ -2,6 +2,7 @@
     /* Colors - open-design.ai Palette */
     --bg-main: #F5F2EB;
     --bg-surface: #FFFFFF;
+    --bg-alt: #FBF9F6;
     --border-color: rgba(0, 0, 0, 0.08);
     --text-primary: #1A1A1A;
     --text-secondary: #4A4A4A;
@@ -14,38 +15,41 @@
     --font-mono: 'IBM Plex Mono', monospace;
     
     /* Spacing & Sizing */
-    --container-width: 1400px; /* Slightly tighter for better focus */
+    --container-width: 1400px;
     --radius-sm: 2px;
     --radius-md: 4px;
     
-    /* Fluid Spacing System - Standardized Vertical Rhythm */
-    --space-3xs: 0.25rem;
-    --space-2xs: 0.5rem;
-    --space-xs: 0.75rem;
-    --space-sm: 1rem;
-    --space-md: 1.5rem;
-    --space-lg: 2rem;
-    --space-xl: 3rem;
-    --space-2xl: 4rem;
-    --space-3xl: 6rem;
-    --space-4xl: 8rem; /* Reduced from 10rem to prevent "huge gaps" */
+    /* Fluid Spacing System */
+    --space-unit: 1rem;
+    --space-3xs: calc(var(--space-unit) * 0.25);
+    --space-2xs: calc(var(--space-unit) * 0.5);
+    --space-xs: calc(var(--space-unit) * 0.75);
+    --space-sm: var(--space-unit);
+    --space-md: calc(var(--space-unit) * 1.5);
+    --space-lg: calc(var(--space-unit) * 2);
+    --space-xl: calc(var(--space-unit) * 3);
+    --space-2xl: calc(var(--space-unit) * 4);
+    --space-3xl: calc(var(--space-unit) * 6);
+    --space-4xl: calc(var(--space-unit) * 8);
     
     /* Fluid Typography Scale (1.25 Ratio) */
     --font-size-base: 1rem;
+    --font-size-sm: clamp(0.75rem, 0.7rem + 0.1vw, 0.875rem);
     --font-size-lg: clamp(1.125rem, 1.1rem + 0.1vw, 1.25rem);
-    --font-size-xl: clamp(1.5rem, 1.4rem + 0.5vw, 2.25rem);
-    --font-size-2xl: clamp(2.25rem, 2rem + 1.2vw, 3.5rem);
-    --font-size-display: clamp(3.5rem, 7vw, 6.5rem);
+    --font-size-xl: clamp(1.5rem, 1.4rem + 0.5vw, 2rem);
+    --font-size-2xl: clamp(2rem, 1.8rem + 1vw, 3rem);
+    --font-size-display: clamp(3rem, 6vw, 6rem);
     
     /* Responsive Values */
-    --container-padding: clamp(1.5rem, 5vw, 4rem);
-    --section-padding: clamp(5rem, 10vw, 10rem); /* Tightened from 15rem */
-    --component-gap: var(--space-xl);
+    --container-padding: clamp(1.5rem, 4vw, 4rem);
+    --section-padding: clamp(4rem, 8vw, 8rem);
+    --component-gap: clamp(1.5rem, 3vw, 3rem);
     
     /* Animation Tokens */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     --duration-slow: 1.2s;
     --duration-md: 0.6s;
+    --duration-fast: 0.3s;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;700;850&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
@@ -69,11 +73,29 @@ body {
     padding-top: 120px; /* Offset for fixed header */
 }
 
+/* Hero-First Focused Entry */
+body.page-locked {
+    overflow: hidden !important;
+    height: 100vh;
+}
+
+body.page-locked main > div:not(#hero),
+body.page-locked #footer {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+main > div, #footer {
+    transition: opacity 1s var(--ease-out-expo), visibility 1s var(--ease-out-expo);
+}
+
 @media (max-width: 1024px) {
     body {
-        padding-top: 104px; /* Offset for smaller mobile header */
+        padding-top: 104px; /* nav-utility (32) + nav-main (72) */
     }
 }
+
 
 /* Vertical Columnar Lines - Landscape Alignment */
 body::after {
@@ -171,6 +193,23 @@ p { font-size: var(--font-size-base); line-height: 1.6; color: var(--text-second
     filter: brightness(1.1);
 }
 
+/* Scroll-triggered button animation */
+.btn-primary.animate-pulse {
+    animation: btn-pulse 2.5s infinite;
+}
+
+@keyframes btn-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(217, 4, 41, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(217, 4, 41, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(217, 4, 41, 0);
+    }
+}
+
 .btn-secondary {
     display: inline-flex;
     align-items: center;
@@ -209,11 +248,15 @@ p { font-size: var(--font-size-base); line-height: 1.6; color: var(--text-second
     body::after { display: none; }
 }
 
-@media (max-width: 768px) {
-    :root {
-        --section-padding: 6rem 0;
-    }
+@media (max-width: 1024px) {
     .display-title {
-        font-size: 3.5rem;
+        font-size: clamp(2.5rem, 8vw, 4rem);
     }
 }
+
+@media (max-width: 480px) {
+    .display-title {
+        font-size: 2.25rem;
+    }
+}
+
