@@ -2,6 +2,7 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": null,
+  "cleanUrls": true,
   "rewrites": [
     { "source": "/mark", "destination": "/mark.html" },
     { "source": "/contact", "destination": "/contact.html" },
