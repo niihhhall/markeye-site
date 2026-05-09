@@ -75,7 +75,7 @@
 
 .method-steps {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Intrinsic Auto-Layout */
     gap: var(--space-xl);
 }
 
@@ -83,6 +83,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
+    height: 100%;
 }
 
 .step-num {
@@ -101,11 +102,11 @@
 .method-step p {
     font-size: 0.9rem;
     line-height: 1.5;
-    min-height: 4rem;
+    min-height: 4.5rem;
 }
 
 .step-visual {
-    margin-top: var(--space-xl);
+    margin-top: auto; /* Push to bottom for alignment */
     aspect-ratio: 1;
     background: var(--bg-alt);
     border: 1px solid var(--border-color);
@@ -133,10 +134,6 @@
         text-align: left;
         max-width: 100%;
     }
-    .method-steps {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-2xl);
-    }
 }
 
 @media (max-width: 640px) {
@@ -146,9 +143,6 @@
     }
     .header-note {
         text-align: center;
-    }
-    .method-steps {
-        grid-template-columns: 1fr;
     }
     .method-step {
         align-items: center;
