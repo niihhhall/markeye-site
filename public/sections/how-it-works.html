@@ -61,8 +61,8 @@
 .method-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: var(--space-4xl);
+    align-items: flex-end; /* Align to baseline for better rhythm */
+    margin-bottom: var(--space-2xl); /* Reduced from 4xl */
 }
 
 .header-note {
@@ -89,22 +89,19 @@
     font-size: 3rem;
     line-height: 1;
     color: var(--accent);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
     opacity: 0.8;
 }
 
 .method-step h3 {
-    font-family: var(--font-sans);
-    font-weight: 700;
-    font-size: 1.5rem;
-    letter-spacing: -0.02em;
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-2xs);
 }
 
 .method-step p {
     font-size: 0.9rem;
-    color: var(--text-secondary);
     line-height: 1.5;
-    min-height: 4.5rem;
+    min-height: 4rem;
 }
 
 .step-visual {

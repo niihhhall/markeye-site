@@ -90,7 +90,7 @@
 .hero-split {
     display: grid;
     grid-template-columns: 1.1fr 1fr;
-    gap: 4rem;
+    gap: var(--component-gap);
     align-items: center;
     position: relative;
     z-index: 2;
@@ -101,17 +101,17 @@
 }
 
 .display-title {
-    margin-bottom: 2.5rem;
+    margin-bottom: var(--space-xl);
     text-align: left;
-    font-size: clamp(3.5rem, 7vw, 6rem);
+    /* Uses global display-title size */
 }
 
 .hero-description {
-    margin-bottom: 3.5rem;
-    font-size: 1.25rem;
+    margin-bottom: var(--space-2xl);
+    font-size: var(--font-size-lg);
     color: var(--text-secondary);
     text-align: left;
-    max-width: 580px;
+    max-width: 60ch; /* Better for readability than fixed px */
 }
 
 /* --- Hero Plate Styling --- */

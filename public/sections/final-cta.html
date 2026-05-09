@@ -50,24 +50,24 @@
 .cta-grid {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
-    gap: var(--space-4xl);
+    gap: var(--space-2xl); /* Reduced from 4xl */
     align-items: center;
 }
 
 .cta-content {
-    max-width: 600px;
+    max-width: 55ch;
 }
 
 .cta-content p {
-    font-size: 1.15rem;
+    font-size: var(--font-size-lg);
     line-height: 1.6;
     color: var(--text-secondary);
-    margin-bottom: var(--space-3xl);
+    margin-bottom: var(--space-2xl);
 }
 
 .cta-actions {
     display: flex;
-    gap: var(--space-lg);
+    gap: var(--space-md);
 }
 
 .cta-visual {
@@ -75,9 +75,9 @@
 }
 
 .cta-visual-wrapper {
-    background: var(--bg-alt);
+    background: var(--bg-surface);
     border: 1px solid var(--border-color);
-    padding: var(--space-xl);
+    padding: var(--space-lg);
 }
 
 .cta-img {
@@ -96,8 +96,8 @@
 }
 
 .cta-footer {
-    margin-top: var(--space-4xl);
-    padding-top: var(--space-xl);
+    margin-top: var(--space-3xl); /* Reduced from 4xl */
+    padding-top: var(--space-lg);
     border-top: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;

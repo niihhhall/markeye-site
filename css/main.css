@@ -14,24 +14,33 @@
     --font-mono: 'IBM Plex Mono', monospace;
     
     /* Spacing & Sizing */
-    --container-width: 1440px;
+    --container-width: 1400px; /* Slightly tighter for better focus */
     --radius-sm: 2px;
     --radius-md: 4px;
     
-    /* Fluid Spacing System */
-    --space-2xs: 0.25rem;
-    --space-xs: 0.5rem;
+    /* Fluid Spacing System - Standardized Vertical Rhythm */
+    --space-3xs: 0.25rem;
+    --space-2xs: 0.5rem;
+    --space-xs: 0.75rem;
     --space-sm: 1rem;
     --space-md: 1.5rem;
     --space-lg: 2rem;
     --space-xl: 3rem;
     --space-2xl: 4rem;
     --space-3xl: 6rem;
-    --space-4xl: 10rem;
+    --space-4xl: 8rem; /* Reduced from 10rem to prevent "huge gaps" */
+    
+    /* Fluid Typography Scale (1.25 Ratio) */
+    --font-size-base: 1rem;
+    --font-size-lg: clamp(1.125rem, 1.1rem + 0.1vw, 1.25rem);
+    --font-size-xl: clamp(1.5rem, 1.4rem + 0.5vw, 2.25rem);
+    --font-size-2xl: clamp(2.25rem, 2rem + 1.2vw, 3.5rem);
+    --font-size-display: clamp(3.5rem, 7vw, 6.5rem);
     
     /* Responsive Values */
     --container-padding: clamp(1.5rem, 5vw, 4rem);
-    --section-padding: clamp(6rem, 12vw, 15rem);
+    --section-padding: clamp(5rem, 10vw, 10rem); /* Tightened from 15rem */
+    --component-gap: var(--space-xl);
     
     /* Animation Tokens */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -108,23 +117,27 @@ h1, h2, h3 {
     letter-spacing: -0.03em;
 }
 
+h2 { font-size: var(--font-size-2xl); margin-bottom: var(--space-md); }
+h3 { font-size: var(--font-size-xl); margin-bottom: var(--space-sm); }
+p { font-size: var(--font-size-base); line-height: 1.6; color: var(--text-secondary); }
+
 .display-title {
-    font-size: clamp(3.5rem, 8vw, 6.5rem);
-    margin-bottom: 2.5rem;
+    font-size: var(--font-size-display);
+    margin-bottom: var(--space-xl);
 }
 
 .section-label {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: var(--space-xl);
     color: var(--text-muted);
 }
 
 .label-num {
     font-family: var(--font-serif);
     font-style: italic;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: var(--accent);
 }
 
